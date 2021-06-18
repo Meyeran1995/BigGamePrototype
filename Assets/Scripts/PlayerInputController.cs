@@ -25,6 +25,7 @@ public class PlayerInputController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        DashValueMapper.Initialize();
 
         inputControls = new PrototypeInputs();
         inputControls.Player.MoveHorizontal.performed += OnMoveDirH;
@@ -34,19 +35,13 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.Dash.started += OnDash;
     }
 
-    private void Start()
-    {
-        DashValueMapper.Initialize();
-    }
-
     private void FixedUpdate()
     {
-        if (isMoving && !isDashing)
-        {
-            transform.position += moveDir * Time.fixedDeltaTime;
-            rb.velocity = Vector2.zero;
-            rb.angularDrag = 0f;
-        }
+        if (!isMoving || isDashing) return;
+
+        transform.position += moveDir * Time.fixedDeltaTime;
+        rb.velocity = Vector2.zero;
+        rb.angularDrag = 0f;
     }
 
     public void OnEnable()
@@ -74,7 +69,7 @@ public class PlayerInputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds horizontral movement to this players MoveVector
+    /// Adds horizontal movement to this players MoveVector
     /// </summary>
     /// <param name="context"></param>
     private void OnMoveDirH(InputAction.CallbackContext context)
@@ -109,6 +104,8 @@ public class PlayerInputController : MonoBehaviour
 
         isDashing = true;
         StartCoroutine(PerformDash());
+        DashValueMapper.OnDashCalcValues();
+        StartCoroutine(activePuzzle.ReactToDash());
     }
 
     private IEnumerator PerformDash()
@@ -125,6 +122,5 @@ public class PlayerInputController : MonoBehaviour
         }
 
         isDashing = false;
-        activePuzzle.ReactToDash();
     }
 }

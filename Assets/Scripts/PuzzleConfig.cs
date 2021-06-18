@@ -1,15 +1,21 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BoolColumn
+public class BoolRow
 {
-    public bool[] column;
+    [SerializeField] private bool[] row;
+
+    public int Length => row.Length;
+
+    public bool GetSwitchValueAtIndex(int index) => row[index];
 }
 
 [CreateAssetMenu(menuName = "ScriptableObjects/PuzzleConfig")]
 public class PuzzleConfig : ScriptableObject
 {
-    [SerializeField] private BoolColumn[] solution;
+    [SerializeField] private BoolRow[] solution;
 
-    public BoolColumn[] Solution => solution;
+    public BoolRow this[int index] => solution[index];
+
+    public int NumberOfRows => solution.Length;
 }

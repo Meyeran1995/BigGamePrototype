@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: EasyPeasy
   m_EditorClassIdentifier: 
   solution:
-  - column: 000000
-  - column: 000101
-  - column: 000100
+  - row: 01010101
