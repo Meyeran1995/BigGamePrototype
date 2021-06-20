@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EasyPeasy
   m_EditorClassIdentifier: 
   solution:
-  - row: 0100000000000001
+  - row: 0100000000000101
   - row: 0100010101000100
   - row: 0100010001010100
   - row: 0101010000000000

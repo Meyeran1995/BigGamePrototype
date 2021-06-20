@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     private PrototypeInputs inputControls;
     private Rigidbody rb;
+    [SerializeField] private Puzzle activePuzzle;
 
     [Range(1f, 10f)]
     [Header("Basic Movement")]
@@ -19,8 +20,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private int dashFrames;
     [HideInInspector]
     public bool isDashing;
-
-    [SerializeField] private Puzzle activePuzzle;
+    [SerializeField] private DashEffect effect;
 
     private void Awake()
     {
@@ -115,6 +115,9 @@ public class PlayerInputController : MonoBehaviour
         var targetPos = transform.position + targetDir * dashPower;
         var dashIncrement = (targetPos - transform.position).magnitude / dashFrames;
 
+        effect.ToggleEffect();
+        effect.OrderShadows(targetDir);
+
         for (int i = dashFrames; i > 0; i--)
         {
             rb.MovePosition(transform.position + targetDir * dashIncrement);
@@ -122,5 +125,6 @@ public class PlayerInputController : MonoBehaviour
         }
 
         isDashing = false;
+        effect.ToggleEffect();
     }
 }
