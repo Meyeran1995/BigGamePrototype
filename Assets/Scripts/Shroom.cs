@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(MeshRenderer))]
 public class Shroom : MonoBehaviour
 {
     [Header("Set/Reset")]
     [SerializeField] private bool isSwitchedOn;
     [SerializeField] private Vector2 setDir, resetDir;
-    private SpriteRenderer shroomRenderer;
+    private MeshRenderer shroomRenderer;
 
     public bool IsSwitchedOn => isSwitchedOn;
 
@@ -17,11 +17,11 @@ public class Shroom : MonoBehaviour
 
     private void Awake()
     {
-        shroomRenderer = GetComponent<SpriteRenderer>();
-        originalColor = shroomRenderer.color;
+        shroomRenderer = GetComponent<MeshRenderer>();
+        originalColor = shroomRenderer.material.color;
     }
 
-    private void Start() => switchOnColor = DashValueMapper.GetColor(setDir);
+    private void Start() => switchOnColor = DashValueMapper.GetColor(new Vector3(setDir.x, 0f, setDir.y));
 
     public void OnDash()
     {
@@ -30,11 +30,11 @@ public class Shroom : MonoBehaviour
 
     private IEnumerator DashReactionAnim()
     {
-        shroomRenderer.color = DashValueMapper.GetCurrentColor();
+        shroomRenderer.material.color = DashValueMapper.GetCurrentColor();
 
         yield return new WaitForSeconds(0.125f);
 
-        shroomRenderer.color = IsSwitchedOn ? switchOnColor : originalColor;
+        shroomRenderer.material.color = IsSwitchedOn ? switchOnColor : originalColor;
 
         yield return new WaitForSeconds(0.125f);
 
@@ -50,7 +50,7 @@ public class Shroom : MonoBehaviour
 
     private bool CheckSetDirection()
     {
-        float angle = Vector2.SignedAngle(setDir, DashValueMapper.GetCurrentDirection());
+        float angle = Vector3.SignedAngle(new Vector3(setDir.x, 0f, setDir.y), DashValueMapper.GetCurrentDirection(), Vector3.up);
         angle = angle < 0f ? -angle : angle;
 
         return angle <= tolerance;
@@ -58,9 +58,9 @@ public class Shroom : MonoBehaviour
 
     private bool CheckResetDirection()
     {
-        if (resetDir == Vector2.zero) return false;
+        if (resetDir == Vector2.zero && !isSwitchedOn) return true;
 
-        float angle = Vector2.SignedAngle(resetDir, DashValueMapper.GetCurrentDirection());
+        float angle = Vector3.SignedAngle(new Vector3(resetDir.x, 0f, resetDir.y), DashValueMapper.GetCurrentDirection(), Vector3.up);
         angle = angle < 0f ? -angle : angle;
 
         return angle <= tolerance;
@@ -71,12 +71,12 @@ public class Shroom : MonoBehaviour
         if (isSwitchedOn) return;
 
         isSwitchedOn = true;
-        shroomRenderer.color = switchOnColor;
+        shroomRenderer.material.color = switchOnColor;
     }
 
     private void SwitchOff()
     {
         isSwitchedOn = false;
-        shroomRenderer.color = originalColor;
+        shroomRenderer.material.color = originalColor;
     }
 }

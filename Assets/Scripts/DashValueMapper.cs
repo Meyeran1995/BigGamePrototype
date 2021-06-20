@@ -3,15 +3,15 @@ using UnityEngine;
 
 public static class DashValueMapper
 {
-    private static readonly Dictionary<Vector2, Color> directionToColorMap = new Dictionary<Vector2, Color>();
-    private static Vector2 CurrentDirection;
+    private static readonly Dictionary<Vector3, Color> directionToColorMap = new Dictionary<Vector3, Color>();
+    private static Vector3 CurrentDirection;
 
     public static void Initialize()
     {
-        directionToColorMap[Vector2.right] = Color.red;
-        directionToColorMap[Vector2.left] = Color.green;
-        directionToColorMap[Vector2.up] = Color.yellow;
-        directionToColorMap[Vector2.down] = Color.blue;
+        directionToColorMap[Vector3.right] = Color.red;
+        directionToColorMap[Vector3.left] = Color.green;
+        directionToColorMap[Vector3.forward] = Color.yellow;
+        directionToColorMap[Vector3.back] = Color.blue;
     }
 
     public static void OnDashCalcValues()
@@ -21,7 +21,7 @@ public static class DashValueMapper
 
         foreach (var entry in directionToColorMap)
         {
-            angle = Vector2.SignedAngle(PlayerInputController.MoveDir, entry.Key);
+            angle = Vector3.SignedAngle(PlayerInputController.MoveDir, entry.Key, Vector3.up);
             angle = angle < 0f ? -angle : angle;
             if (prevAngle < angle) continue;
 
@@ -30,7 +30,7 @@ public static class DashValueMapper
         }
     }
 
-    public static Color GetColor(Vector2 setDir)
+    public static Color GetColor(Vector3 setDir)
     {
         if (directionToColorMap.TryGetValue(setDir, out Color color))
         {
@@ -40,11 +40,11 @@ public static class DashValueMapper
         {
             float angle;
             float prevAngle = 360f;
-            Vector2 approxDirection = Vector2.zero;
+            Vector3 approxDirection = Vector3.zero;
 
             foreach (var entry in directionToColorMap)
             {
-                angle = Vector2.SignedAngle(setDir, entry.Key);
+                angle = Vector3.SignedAngle(setDir, entry.Key, Vector3.up);
                 angle = angle < 0f ? -angle : angle;
                 if (prevAngle < angle) continue;
 
@@ -58,5 +58,5 @@ public static class DashValueMapper
 
     public static Color GetCurrentColor() => directionToColorMap[CurrentDirection];
 
-    public static Vector2 GetCurrentDirection() => CurrentDirection;
+    public static Vector3 GetCurrentDirection() => CurrentDirection;
 }

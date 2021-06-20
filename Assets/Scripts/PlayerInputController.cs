@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PrototypeInputs inputControls;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     [Range(1f, 10f)]
     [Header("Basic Movement")]
     public float moveSpeed;
     private static Vector3 moveDir;
     private bool isMoving;
-    public static Vector2 MoveDir => moveDir;
+    public static Vector3 MoveDir => moveDir;
 
     [Header("Dashing")]
     public float dashPower;
@@ -24,7 +24,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         DashValueMapper.Initialize();
 
         inputControls = new PrototypeInputs();
@@ -40,7 +40,7 @@ public class PlayerInputController : MonoBehaviour
         if (!isMoving || isDashing) return;
 
         transform.position += moveDir * Time.fixedDeltaTime;
-        rb.velocity = Vector2.zero;
+        rb.velocity = Vector3.zero;
         rb.angularDrag = 0f;
     }
 
@@ -64,7 +64,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     private void OnMoveDirV(InputAction.CallbackContext context)
     {
-        moveDir.y += context.ReadValue<float>() * moveSpeed;
+        moveDir.z += context.ReadValue<float>() * moveSpeed;
         isMoving = true;
     }
 
@@ -94,7 +94,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     private void OnMoveStopV(InputAction.CallbackContext context)
     {
-        moveDir.y = 0f;
+        moveDir.z = 0f;
         isMoving = moveDir != Vector3.zero;
     }
 
