@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,6 +7,13 @@ public class Puzzle : MonoBehaviour
 {
     [SerializeField] private PuzzleRow[] rows;
     [SerializeField] private PuzzleConfig activeSolution;
+
+    public static readonly List<ShroomNode> notifiedNodes = new List<ShroomNode>();
+    private static readonly List<ShroomNode> nodes = new List<ShroomNode>();
+
+    [SerializeField] private float baseWaitTime;
+    private const float WAIT_INCREMENT = 0.125f;
+    public static float CurrentWaittime { get; private set; }
 
     private void Awake()
     {
@@ -22,13 +30,20 @@ public class Puzzle : MonoBehaviour
 
     public IEnumerator ReactToDash()
     {
-        foreach (var row in rows)
+        //foreach (var row in rows)
+        //{
+        //    row.ReactToDash();
+        //}
+
+        notifiedNodes.Clear();
+        CurrentWaittime = baseWaitTime;
+
+        foreach (var node in nodes)
         {
-            row.ReactToDash();
+            node.NotifyNeighbors();
         }
 
-        //TODO: Diese zahl muss immer angepasst werden, wenn die shroom reaction anim verändert wird
-        yield return new WaitForSeconds(0.55f);
+        yield return new WaitUntil(() => notifiedNodes.Count == nodes.Count);
 
         CheckCurrentPuzzleState();
     }
@@ -44,4 +59,8 @@ public class Puzzle : MonoBehaviour
     {
         Debug.Log("You win!");
     }
+
+    public static void RegisterNode(ShroomNode node) => nodes.Add(node);
+
+    public static void IncrementWaitTime() => CurrentWaittime += WAIT_INCREMENT;
 }

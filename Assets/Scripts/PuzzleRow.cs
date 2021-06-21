@@ -16,7 +16,7 @@ public class PuzzleRow : MonoBehaviour
     {
         foreach (var shroom in shrooms)
         {
-            shroom.OnDash();
+            shroom.OnDash(0.125f);
         }
     }
 

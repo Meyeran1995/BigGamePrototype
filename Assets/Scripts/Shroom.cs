@@ -23,20 +23,27 @@ public class Shroom : MonoBehaviour
 
     private void Start() => switchOnColor = DashValueMapper.GetColor(new Vector3(setDir.x, 0f, setDir.y));
 
-    public void OnDash()
+    public void OnDash(float waitTime)
     {
-        StartCoroutine(DashReactionAnim());
+        StartCoroutine(DashReactionAnim(waitTime));
     }
 
-    private IEnumerator DashReactionAnim()
+    private IEnumerator DashReactionAnim(float waitTime)
     {
-        shroomRenderer.material.color = DashValueMapper.GetCurrentColor();
+        Color currentColor = IsSwitchedOn ? switchOnColor : originalColor;
+        Color currentDashColor = DashValueMapper.GetCurrentColor();
 
-        yield return new WaitForSeconds(0.125f);
+        float t = 0f;
+
+        while(waitTime > 0f)
+        {
+            shroomRenderer.material.color = Color.Lerp(currentColor, currentDashColor,  t);
+            t += Time.deltaTime / 2f;
+            waitTime -= Time.deltaTime;
+            yield return null;
+        }
 
         shroomRenderer.material.color = IsSwitchedOn ? switchOnColor : originalColor;
-
-        yield return new WaitForSeconds(0.125f);
 
         if (CheckSetDirection())
         {

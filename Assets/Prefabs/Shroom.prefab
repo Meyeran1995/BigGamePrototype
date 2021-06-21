@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2461890317155503904}
   - component: {fileID: 2230716695414509}
   - component: {fileID: 804972832891966352}
-  m_Layer: 0
+  - component: {fileID: -7151133862223729299}
+  - component: {fileID: -46799878651758466}
+  m_Layer: 6
   m_Name: Shroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,3 +100,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2461890317155503918}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &-7151133862223729299
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461890317155503918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-46799878651758466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461890317155503918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f2f4db18a535b41bdeff5ae2ccc8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighborRadius: 2

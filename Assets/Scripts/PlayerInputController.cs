@@ -110,6 +110,8 @@ public class PlayerInputController : MonoBehaviour
 
     private IEnumerator PerformDash()
     {
+        CinemachineShake.Instance.ShakeCamera(4f, 0.1f);
+
         var targetDir = moveDir;
         targetDir.Normalize();
         var targetPos = transform.position + targetDir * dashPower;
