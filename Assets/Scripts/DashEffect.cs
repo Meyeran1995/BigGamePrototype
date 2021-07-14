@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class DashEffect : MonoBehaviour
 {
-    [Range(0f, 10f)]
-    public float spacing;
-    private GameObject[] shadows;
+    [Range(0f, 10f)] [SerializeField] protected float spacing;
+    protected GameObject[] shadows;
 
     private void Awake()
     {
@@ -28,7 +27,7 @@ public class DashEffect : MonoBehaviour
     /// Orders the effects shadows according to a given direction
     /// </summary>
     /// <param name="dashDirection">Normalized vector3 aligned with desired dash direction</param>
-    public void OrderShadows(Vector3 dashDirection)
+    public virtual void OrderShadows(Vector3 dashDirection)
     {
         dashDirection = -dashDirection;
         float currentX, currentZ;

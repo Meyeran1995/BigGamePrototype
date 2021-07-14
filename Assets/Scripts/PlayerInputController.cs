@@ -11,20 +11,21 @@ public class PlayerInputController : MonoBehaviour
     [Range(1f, 10f)]
     [Header("Basic Movement")]
     public float moveSpeed;
-    private static Vector3 moveDir;
-    private bool isMoving;
+    protected static Vector3 moveDir;
+    protected bool isMoving;
     public static Vector3 MoveDir => moveDir;
 
     [Header("Dashing")]
     public float dashPower;
-    [SerializeField] private int dashFrames;
+    [SerializeField] protected int dashFrames;
     [HideInInspector]
     public bool isDashing;
-    [SerializeField] private DashEffect effect;
+    [SerializeField] protected DashEffect effect;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        if (!effect)
+            effect = GetComponent<DashEffect>();
         DashValueMapper.Initialize();
 
         inputControls = new PrototypeInputs();
@@ -35,16 +36,18 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.Dash.started += OnDash;
     }
 
+    protected virtual void Start() => rb = GetComponent<Rigidbody>();
+
     private void FixedUpdate()
     {
         if (!isMoving || isDashing) return;
-
-        transform.position += moveDir * Time.fixedDeltaTime;
-        rb.velocity = Vector3.zero;
-        rb.angularDrag = 0f;
+        transform.hasChanged = true;
+        Move();
     }
 
-    public void OnEnable()
+    protected virtual void Move() => rb.MovePosition(rb.position + moveDir * Time.fixedDeltaTime);
+
+    private void OnEnable()
     {
         inputControls.Player.MoveHorizontal.Enable();
         inputControls.Player.MoveVertical.Enable();
@@ -62,7 +65,7 @@ public class PlayerInputController : MonoBehaviour
     /// Adds vertical movement to this players MoveVector
     /// </summary>
     /// <param name="context"></param>
-    private void OnMoveDirV(InputAction.CallbackContext context)
+    protected virtual void OnMoveDirV(InputAction.CallbackContext context)
     {
         moveDir.z += context.ReadValue<float>() * moveSpeed;
         isMoving = true;
@@ -92,7 +95,7 @@ public class PlayerInputController : MonoBehaviour
     /// Stops vertical movement
     /// </summary>
     /// <param name="context"></param>
-    private void OnMoveStopV(InputAction.CallbackContext context)
+    protected virtual void OnMoveStopV(InputAction.CallbackContext context)
     {
         moveDir.z = 0f;
         isMoving = moveDir != Vector3.zero;
@@ -108,7 +111,7 @@ public class PlayerInputController : MonoBehaviour
         StartCoroutine(activePuzzle.ReactToDash());
     }
 
-    private IEnumerator PerformDash()
+    protected virtual IEnumerator PerformDash()
     {
         CinemachineShake.Instance.ShakeCamera(4f, 0.1f);
 
@@ -122,7 +125,7 @@ public class PlayerInputController : MonoBehaviour
 
         for (int i = dashFrames; i > 0; i--)
         {
-            rb.MovePosition(transform.position + targetDir * dashIncrement);
+            rb.MovePosition(rb.position + targetDir * dashIncrement);
             yield return new WaitForFixedUpdate();
         }
 
