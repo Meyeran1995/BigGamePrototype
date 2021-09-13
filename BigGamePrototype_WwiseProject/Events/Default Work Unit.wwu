@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Player_Hit_Stone" ID="{2E5ED439-C32C-447C-8F24-03FAB522A04C}">
+					<ChildrenList>
+						<Action Name="" ID="{A7484663-506A-4B8E-BCCE-901AA10D7284}" ShortID="624293131">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_clonk" ID="{CCF73E9E-1622-49C1-84DE-4D372DA2F123}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BG_Music" ID="{BDCF1B77-FF5C-4725-B0F3-836143D59DB6}">
+					<ChildrenList>
+						<Action Name="" ID="{CE79FB94-E2C3-47C7-B9A4-6D6A29CFD5AA}" ShortID="282354639">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Nighty exploration" ID="{77500F23-87BA-401A-B652-C7C06CE8A60E}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

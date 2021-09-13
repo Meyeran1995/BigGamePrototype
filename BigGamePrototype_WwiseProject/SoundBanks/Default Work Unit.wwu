@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{CE40181F-9E95-4806-94A3-3D1641D4D759}" SchemaVersion="103">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{CE40181F-9E95-4806-94A3-3D1641D4D759}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{CE40181F-9E95-4806-94A3-3D1641D4D759}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{49671E42-7CA4-49D5-89E4-E515B4575E43}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Player_Hit_Stone" ID="{2E5ED439-C32C-447C-8F24-03FAB522A04C}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BG_Music" ID="{BDCF1B77-FF5C-4725-B0F3-836143D59DB6}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
