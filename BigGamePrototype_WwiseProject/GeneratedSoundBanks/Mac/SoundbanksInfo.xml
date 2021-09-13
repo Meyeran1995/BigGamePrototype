@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX" Hash="3366356207">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2619506084" Name="BG_Music" ObjectPath="\Events\Default Work Unit\BG_Music" DurationType="OneShot" DurationMin="14.000000" DurationMax="14.000000">
+					<IncludedMemoryFiles>
+						<File Id="774666959" Language="SFX">
+							<ShortName>Nighty exploration.wav</ShortName>
+							<Path>SFX\Nighty exploration_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1814079738" Name="Player_Hit_Stone" ObjectPath="\Events\Default Work Unit\Player_Hit_Stone" DurationType="OneShot" DurationMin="0.334146" DurationMax="0.334146">
+					<IncludedMemoryFiles>
+						<File Id="898658011" Language="SFX">
+							<ShortName>SFX_clonk.wav</ShortName>
+							<Path>SFX\SFX_clonk_4ABE0407.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

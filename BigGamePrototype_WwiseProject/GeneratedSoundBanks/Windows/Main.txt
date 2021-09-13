@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1814079738	Player_Hit_Stone			\Default Work Unit\Player_Hit_Stone	
+	2619506084	BG_Music			\Default Work Unit\BG_Music	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	774666959	Nighty exploration	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Windows\SFX\Nighty exploration_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nighty exploration		2688064
+	898658011	SFX_clonk	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Windows\SFX\SFX_clonk_4ABE0407.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_clonk		32142
+
