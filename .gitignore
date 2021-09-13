@@ -58,9 +58,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-#Wwise stuff
+# Wwise Files and Folders
 .cache
 *.akd
 *.prof
 *.validationcache
 /Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
+/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset.meta
