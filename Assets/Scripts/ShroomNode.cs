@@ -29,7 +29,7 @@ public class ShroomNode : MonoBehaviour
 
         Puzzle.notifiedNodes.Add(this);
         shroom.OnDash(Puzzle.CurrentWaittime);
-        Puzzle.IncrementWaitTime();
+        //Puzzle.IncrementWaitTime();
 
         if(neighbors == null) return;
 
