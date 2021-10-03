@@ -107,6 +107,8 @@ public class PlayerInputController : MonoBehaviour
 
         isDashing = true;
         StartCoroutine(PerformDash());
+
+        if (!activePuzzle) return;
         DashValueMapper.OnDashCalcValues();
         StartCoroutine(activePuzzle.ReactToDash());
     }
