@@ -34,6 +34,8 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.MoveVertical.performed += OnMoveDirV;
         inputControls.Player.MoveVertical.canceled += OnMoveStopV;
         inputControls.Player.Dash.started += OnDash;
+        inputControls.Player.SwapProjection.started += Camera.main.GetComponent<CameraProjectionSwapper>().OnCameraProjectionChange;
+        inputControls.Player.Interact.started += GetComponent<PlayerInteraction>().OnTryInteract;
     }
 
     protected virtual void Start() => rb = GetComponent<Rigidbody>();
@@ -52,12 +54,16 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.MoveHorizontal.Enable();
         inputControls.Player.MoveVertical.Enable();
         inputControls.Player.Dash.Enable();
+        inputControls.Player.Interact.Enable();
+        inputControls.Player.SwapProjection.Enable();
     }
 
     private void OnDisable()
     {
         inputControls.Player.MoveHorizontal.Disable();
         inputControls.Player.MoveVertical.Disable();
+        inputControls.Player.SwapProjection.Disable();
+        inputControls.Player.Interact.Disable();
         inputControls.Player.Dash.Disable();
     }
 
@@ -67,7 +73,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     protected virtual void OnMoveDirV(InputAction.CallbackContext context)
     {
-        moveDir.z += context.ReadValue<float>() * moveSpeed;
+        moveDir.z -= context.ReadValue<float>() * moveSpeed;
         isMoving = true;
     }
 
@@ -77,7 +83,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     private void OnMoveDirH(InputAction.CallbackContext context)
     {
-        moveDir.x += context.ReadValue<float>() * moveSpeed;
+        moveDir.x -= context.ReadValue<float>() * moveSpeed;
         isMoving = true;
     }
 

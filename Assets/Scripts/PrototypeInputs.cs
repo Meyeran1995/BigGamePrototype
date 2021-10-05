@@ -41,6 +41,22 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapProjection"",
+                    ""type"": ""Button"",
+                    ""id"": ""b89099dc-f195-4d9d-bc3e-1fc39908d801"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""68256d25-898f-455a-96d9-c437f4c3485b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -118,6 +134,28 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a00e8199-af5d-4147-b1b6-0b024fb2ce04"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapProjection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3d434f6-9844-4b76-84f3-81e127e66926"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -698,6 +736,8 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         m_Player_MoveHorizontal = m_Player.FindAction("MoveHorizontal", throwIfNotFound: true);
         m_Player_MoveVertical = m_Player.FindAction("MoveVertical", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_SwapProjection = m_Player.FindAction("SwapProjection", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -762,6 +802,8 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_MoveHorizontal;
     private readonly InputAction m_Player_MoveVertical;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_SwapProjection;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @PrototypeInputs m_Wrapper;
@@ -769,6 +811,8 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         public InputAction @MoveHorizontal => m_Wrapper.m_Player_MoveHorizontal;
         public InputAction @MoveVertical => m_Wrapper.m_Player_MoveVertical;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @SwapProjection => m_Wrapper.m_Player_SwapProjection;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -787,6 +831,12 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @SwapProjection.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapProjection;
+                @SwapProjection.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapProjection;
+                @SwapProjection.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapProjection;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -800,6 +850,12 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @SwapProjection.started += instance.OnSwapProjection;
+                @SwapProjection.performed += instance.OnSwapProjection;
+                @SwapProjection.canceled += instance.OnSwapProjection;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -959,6 +1015,8 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         void OnMoveHorizontal(InputAction.CallbackContext context);
         void OnMoveVertical(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnSwapProjection(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

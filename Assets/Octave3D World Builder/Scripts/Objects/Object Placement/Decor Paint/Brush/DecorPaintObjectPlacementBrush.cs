@@ -140,7 +140,11 @@ namespace O3DWB
             _elements.Clear();
 
             _activeElementIndex = -1;
-            foreach (var element in allElements) UndoEx.DestroyObjectImmediate(element);
+            foreach (var element in allElements)
+            {
+                if(element)
+                    UndoEx.DestroyObjectImmediate(element);
+            }
         }
 
         public DecorPaintObjectPlacementBrushElement CreateNewElement()
