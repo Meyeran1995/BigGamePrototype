@@ -73,7 +73,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     protected virtual void OnMoveDirV(InputAction.CallbackContext context)
     {
-        moveDir.z -= context.ReadValue<float>() * moveSpeed;
+        moveDir.z += context.ReadValue<float>() * moveSpeed;
         isMoving = true;
     }
 
@@ -83,7 +83,7 @@ public class PlayerInputController : MonoBehaviour
     /// <param name="context"></param>
     private void OnMoveDirH(InputAction.CallbackContext context)
     {
-        moveDir.x -= context.ReadValue<float>() * moveSpeed;
+        moveDir.x += context.ReadValue<float>() * moveSpeed;
         isMoving = true;
     }
 
@@ -121,7 +121,8 @@ public class PlayerInputController : MonoBehaviour
 
     protected virtual IEnumerator PerformDash()
     {
-        CinemachineShake.Instance.ShakeCamera(4f, 0.1f);
+        if(CinemachineShake.Instance)
+            CinemachineShake.Instance.ShakeCamera(4f, 0.1f);
 
         var targetDir = moveDir;
         targetDir.Normalize();
