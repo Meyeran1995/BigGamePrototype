@@ -14,21 +14,21 @@ public static class DashValueMapper
         directionToColorMap[Vector3.back] = Color.blue;
     }
 
-    public static void OnDashCalcValues()
-    {
-        float angle;
-        float prevAngle = 360f;
-
-        foreach (var entry in directionToColorMap)
-        {
-            angle = Vector3.SignedAngle(PlayerInputController.MoveDir, entry.Key, Vector3.up);
-            angle = angle < 0f ? -angle : angle;
-            if (prevAngle < angle) continue;
-
-            CurrentDirection = entry.Key;
-            prevAngle = angle;
-        }
-    }
+    // public static void OnDashCalcValues()
+    // {
+    //     float angle;
+    //     float prevAngle = 360f;
+    //
+    //     foreach (var entry in directionToColorMap)
+    //     {
+    //         angle = Vector3.SignedAngle(PlayerInputController.MoveDir, entry.Key, Vector3.up);
+    //         angle = angle < 0f ? -angle : angle;
+    //         if (prevAngle < angle) continue;
+    //
+    //         CurrentDirection = entry.Key;
+    //         prevAngle = angle;
+    //     }
+    // }
 
     public static Color GetColor(Vector3 setDir)
     {

@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ae0ad7af974f7d43b5fdff2b53e3da6, type: 2}
+  - {fileID: 2100000, guid: 4f16f4eb2b9836842b48e9f0a8ee196a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ae0ad7af974f7d43b5fdff2b53e3da6, type: 2}
+  - {fileID: 2100000, guid: 4f16f4eb2b9836842b48e9f0a8ee196a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,6 +207,8 @@ GameObject:
   - component: {fileID: 7580026025542243696}
   - component: {fileID: 7580026025542243697}
   - component: {fileID: 5958100185358244989}
+  - component: {fileID: 5450604255376556498}
+  - component: {fileID: 4790662482403787118}
   m_Layer: 0
   m_Name: Player3D
   m_TagString: Player
@@ -308,6 +310,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ca6e2f33-3095-4dac-bb35-b570450f2612
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b89099dc-f195-4d9d-bc3e-1fc39908d801
+    m_ActionName: Player/SwapProjection[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68256d25-898f-455a-96d9-c437f4c3485b
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -325,12 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f56b83f3297f1d4eaa81e7dc143c33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePuzzle: {fileID: 0}
-  moveSpeed: 4
-  dashPower: 4
-  dashFrames: 7
-  isDashing: 0
-  effect: {fileID: 7580026025542243696}
 --- !u!54 &7580026025542243703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -366,7 +370,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb8f4045db1808841b6259b15d1874ae, type: 2}
+  - {fileID: 2100000, guid: 4f16f4eb2b9836842b48e9f0a8ee196a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,6 +438,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96bf849566f88141881ec9aaaf2000a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5450604255376556498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580026025542243705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71df2f39a452144d8b376e5747d2a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  dashPower: 1.25
+  dashFrames: 12
+  isDashing: 0
+  effect: {fileID: 7580026025542243696}
+--- !u!114 &4790662482403787118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580026025542243705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f384cf23cb5c5449b66461e055cc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7580026025727617900
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +527,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ae0ad7af974f7d43b5fdff2b53e3da6, type: 2}
+  - {fileID: 2100000, guid: 4f16f4eb2b9836842b48e9f0a8ee196a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
