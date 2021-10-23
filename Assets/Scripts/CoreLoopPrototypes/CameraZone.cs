@@ -26,9 +26,9 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        float angle = Vector3.SignedAngle(other.transform.position - transform.position, exitDirection, Vector3.up);
+        float angle = Vector3.Angle(other.transform.position - transform.position, exitDirection);
 
-        if (angle > 0f)
+        if (angle < 90f)
         {
             if (exitCam)
                 exitCam.enabled = true;
@@ -43,6 +43,6 @@ public class CameraZone : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawLine(transform.position, transform.position + exitDirection * 5f);
+        Gizmos.DrawLine(transform.position, transform.position + exitDirection.normalized * 5f);
     }
 }
