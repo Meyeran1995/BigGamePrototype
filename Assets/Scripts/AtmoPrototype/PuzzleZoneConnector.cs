@@ -8,13 +8,16 @@ public class PuzzleZoneConnector : MonoBehaviour
     private static bool firstZoneEntered;
     private static List<Tuple<int, int>> connections;
 
+    [Header("Connections")]
     [SerializeField] private Material connectionMaterial;
     private static Material staticMaterial;
+    private static Transform rendererParent;
 
     private void Awake()
     {
         connections = new List<Tuple<int, int>>();
         staticMaterial = connectionMaterial;
+        rendererParent = GameObject.FindGameObjectWithTag("Lineparent").transform;
     }
 
     public static void OnZoneEntered(int zoneIndex, Vector3 zonePosition)
@@ -46,6 +49,7 @@ public class PuzzleZoneConnector : MonoBehaviour
         line.SetPosition(0, lastPosition.Item2);
         line.SetPosition(1, currentPosition.Item2);
         line.sharedMaterial = staticMaterial;
+        line.transform.SetParent(rendererParent);
         
         connections.Add(new Tuple<int, int>(lastPosition.Item1, currentPosition.Item1));
     }
@@ -63,5 +67,16 @@ public class PuzzleZoneConnector : MonoBehaviour
         }
 
         return false;
+    }
+
+    public static void ResetConnections()
+    {
+        foreach (Transform linerenderer in rendererParent)
+        {
+            Destroy(linerenderer.gameObject);
+        }
+
+        connections.Clear();
+        firstZoneEntered = false;
     }
 }

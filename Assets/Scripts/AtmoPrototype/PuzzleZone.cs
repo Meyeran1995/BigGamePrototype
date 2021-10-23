@@ -5,9 +5,24 @@ public class PuzzleZone : MonoBehaviour
 {
     [SerializeField] private int zoneIndex;
     private static int nextZoneIndex = 0;
-    private void Awake() => zoneIndex = nextZoneIndex++;
-    
+    protected static PlayerMovement movement;
+
+    private void Awake()
+    {
+        zoneIndex = nextZoneIndex++;
+        if (!movement)
+            movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+    }
+
     private void OnValidate() => GetComponent<SphereCollider>().isTrigger = true;
 
-    private void OnTriggerEnter(Collider other) => PuzzleZoneConnector.OnZoneEntered(zoneIndex, transform.position);
+    protected virtual void ZoneInteraction()
+    {
+        if (!movement.isDashing) return;
+        PuzzleZoneConnector.OnZoneEntered(zoneIndex, transform.position);
+    }
+
+    protected virtual void OnTriggerEnter(Collider other) => ZoneInteraction();
+
+    protected virtual void OnTriggerExit(Collider other) => ZoneInteraction();
 }
