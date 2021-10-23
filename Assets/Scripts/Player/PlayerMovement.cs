@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        var currentMovement = invertMovement ? -moveDir * Time.fixedDeltaTime : moveDir * Time.fixedDeltaTime;
+        var currentMovement = moveDir * Time.fixedDeltaTime;
         
         if(collision.ProbeCollisionOnGroundPlane(currentMovement))
         {
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="amount">Amount of movement to be added</param>
     public void AddVerticalMovement(float amount)
     {
-        moveDir.z += amount * moveSpeed;
+        moveDir.z += invertMovement ? -amount * moveSpeed : amount * moveSpeed;
         isMoving = true;
     }
     
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="amount">Amount of movement to be added</param>
     public void AddHorizontalMovement(float amount)
     {
-        moveDir.x += amount * moveSpeed;
+        moveDir.x += invertMovement ? -amount * moveSpeed : amount * moveSpeed;
         isMoving = true;
     }
 
