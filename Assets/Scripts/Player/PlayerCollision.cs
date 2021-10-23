@@ -22,9 +22,8 @@ public class PlayerCollision : MonoBehaviour
    {
       // works only for static collisions
       if (lastProbeWasHit && movementDirection == lastProbeDirection) return true;
-      
-      var extentOffset = movementDirection.normalized;
-      extentOffset.Scale(halfExtents);
+
+      var extentOffset = CalculateExtentOffset(movementDirection);
 
       lastProbeWasHit = Physics.Raycast(rb.position, movementDirection, out var hitInfo,
          (movementDirection + extentOffset).magnitude, ~0, QueryTriggerInteraction.Ignore);
@@ -39,6 +38,38 @@ public class PlayerCollision : MonoBehaviour
       lastImpactPosition = contactPosition;
 
       return true;
+   }
+
+   /// <summary>
+   /// Gets the half extent offset based on movement direction
+   /// </summary>
+   /// <param name="movementDirection">Current direction of movement</param>
+   /// <returns>Offset in movement direction with half extents</returns>
+   private Vector3 CalculateExtentOffset(Vector3 movementDirection)
+   {
+       var offset = movementDirection.normalized;
+
+       if (movementDirection.x != 0f)
+       {
+           if (movementDirection.z != 0f)
+           {
+               float a = halfExtents.x;
+               float b = halfExtents.z;
+               float hypotenuse = Mathf.Sqrt(a * a + b * b);
+
+               offset *= hypotenuse;
+           }
+           else
+           {
+               offset.x *= halfExtents.x;
+           }
+       }
+       else
+       {
+           offset.z *= halfExtents.z;
+       }
+
+       return offset;
    }
 
    /// <summary>

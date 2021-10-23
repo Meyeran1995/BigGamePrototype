@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(1f, 20f)] public float moveSpeed;
     private Vector3 moveDir;
     private bool isMoving;
+    [SerializeField] private bool invertMovement;
 
     [Header("Dashing")]
     [SerializeField] [Range(1.25f, 2f)]private float dashPower;
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        var currentMovement = moveDir * Time.fixedDeltaTime;
+        var currentMovement = invertMovement ? -moveDir * Time.fixedDeltaTime : moveDir * Time.fixedDeltaTime;
         
         if(collision.ProbeCollisionOnGroundPlane(currentMovement))
         {
