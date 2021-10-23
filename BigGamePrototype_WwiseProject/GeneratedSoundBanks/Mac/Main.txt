@@ -1,8 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
-	1814079738	Player_Hit_Stone			\Default Work Unit\Player_Hit_Stone	
-	2619506084	BG_Music			\Default Work Unit\BG_Music	
+	395039606	Play_SFX_Dash			\Default Work Unit\Play_SFX_Dash	
+	1714317972	Play_BGM_Forest			\Default Work Unit\Play_BGM_Forest	
+	3493228555	Play_Athmo			\Default Work Unit\Play_Athmo	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	774666959	Nighty exploration	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Nighty exploration_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nighty exploration		2688064
-	898658011	SFX_clonk	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\SFX_clonk_4ABE0407.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_clonk		32142
+	49428997	Proto_Athmo_Forest	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Proto_Athmo_Forest_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Athmo\Proto_Athmo_Forest		15552064
+	258345738	Proto_BGM_Forest-001	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Proto_BGM_Forest-001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\ExplorationTheme\Proto_BGM_Forest-001		7528860
+	258920266	Proto_BGM_Forest-002	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Proto_BGM_Forest-002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\ExplorationTheme\Proto_BGM_Forest-002		7528860
+	655071278	Proto_SFX_Dash	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Proto_SFX_Dash_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Proto_SFX_Dash		200420
+	811728653	Proto_BGM_Forest-003	C:\Unity_Projects\BigGamePrototype\BigGamePrototype_WwiseProject\.cache\Mac\SFX\Proto_BGM_Forest-003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\ExplorationTheme\Proto_BGM_Forest-003		7528860
 

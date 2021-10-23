@@ -3,23 +3,81 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Player_Hit_Stone" ID="{2E5ED439-C32C-447C-8F24-03FAB522A04C}">
+				<Event Name="Play_SFX_Dash" ID="{17CF3265-EBEE-47C8-9387-E9E7D9237305}">
 					<ChildrenList>
-						<Action Name="" ID="{A7484663-506A-4B8E-BCCE-901AA10D7284}" ShortID="624293131">
+						<Action Name="" ID="{CFC1E358-EDB7-4F4F-80DE-39C68BD4ECD0}" ShortID="250249965">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_clonk" ID="{CCF73E9E-1622-49C1-84DE-4D372DA2F123}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+									<ObjectRef Name="Proto_SFX_Dash" ID="{92C7F2DB-5717-4844-A06D-21945B69A383}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="BG_Music" ID="{BDCF1B77-FF5C-4725-B0F3-836143D59DB6}">
+				<Event Name="Play_Athmo" ID="{4E7FD811-2123-4486-BEA7-A08F5B860A96}">
 					<ChildrenList>
-						<Action Name="" ID="{CE79FB94-E2C3-47C7-B9A4-6D6A29CFD5AA}" ShortID="282354639">
+						<Action Name="" ID="{81B7855D-15D1-43FF-B897-2FD3F0D2029C}" ShortID="901509904">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Nighty exploration" ID="{77500F23-87BA-401A-B652-C7C06CE8A60E}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+									<ObjectRef Name="Proto_Athmo_Forest" ID="{630FA243-AF39-4A32-8BFC-DCD62508B86A}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_BGM_Forest" ID="{C284CF27-542D-438D-91AB-E719901995EC}">
+					<ChildrenList>
+						<Action Name="" ID="{B977223D-2E0E-4C75-8CBA-9E14611D2472}" ShortID="933522920">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Proto_BGM_Forest-002" ID="{A836FF5D-C2FD-4C38-BC68-AC842730E7D2}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8A799D48-8206-467A-8E0B-F89CD1CECD8A}" ShortID="986922951">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Proto_BGM_Forest-001" ID="{07302B1B-13FC-43DF-95FF-9FCC5A052754}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C2B8114F-5921-4CDD-B310-4BFD1185F232}" ShortID="985377767">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Proto_BGM_Forest-003" ID="{F1060265-9CF6-422D-8BA0-5D19B8C2586C}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_SFX_TreeNoise" ID="{76986FC5-07EC-4917-9EA2-3133F740C779}">
+					<ChildrenList>
+						<Action Name="" ID="{32FCBB25-72C4-4053-B5F7-FADC42E53EBB}" ShortID="948067075">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Proto_SFX_TreeNoise-012" ID="{05B61D5B-B09D-4BEC-84FF-14908C55A81C}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_BGM_Puzzle" ID="{2A2FBC59-C9A2-4E52-86CC-DAF5C992FEBD}">
+					<ChildrenList>
+						<Action Name="" ID="{C1480976-A804-4C6B-A45D-468B304B1826}" ShortID="169775749">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Mysterious Shapes" ID="{26013C68-E1EF-4345-9A54-BD1920152406}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_SFX_PuzzleSolved" ID="{709383F6-0EF3-40F8-8684-2BC898626CC8}">
+					<ChildrenList>
+						<Action Name="" ID="{D71DDD7F-D5A9-4673-B0D5-9E82EB153F86}" ShortID="216167557">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_puzzle-solved" ID="{0F333D5D-D5E9-4131-B7E7-283328B7B521}" WorkUnitID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

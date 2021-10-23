@@ -16,24 +16,40 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3366356207">
+		<SoundBank Id="3161908922" Language="SFX" Hash="428992960">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2619506084" Name="BG_Music" ObjectPath="\Events\Default Work Unit\BG_Music" DurationType="OneShot" DurationMin="14.000000" DurationMax="14.000000">
+				<Event Id="3493228555" Name="Play_Athmo" ObjectPath="\Events\Default Work Unit\Play_Athmo" DurationType="OneShot" DurationMin="81.000000" DurationMax="81.000000">
 					<IncludedMemoryFiles>
-						<File Id="774666959" Language="SFX">
-							<ShortName>Nighty exploration.wav</ShortName>
-							<Path>SFX\Nighty exploration_10C4C929.wem</Path>
+						<File Id="49428997" Language="SFX">
+							<ShortName>Proto_Athmo_Forest.wav</ShortName>
+							<Path>SFX\Proto_Athmo_Forest_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1814079738" Name="Player_Hit_Stone" ObjectPath="\Events\Default Work Unit\Player_Hit_Stone" DurationType="OneShot" DurationMin="0.334146" DurationMax="0.334146">
+				<Event Id="1714317972" Name="Play_BGM_Forest" ObjectPath="\Events\Default Work Unit\Play_BGM_Forest" DurationType="OneShot" DurationMin="39.212479" DurationMax="39.212479">
 					<IncludedMemoryFiles>
-						<File Id="898658011" Language="SFX">
-							<ShortName>SFX_clonk.wav</ShortName>
-							<Path>SFX\SFX_clonk_4ABE0407.wem</Path>
+						<File Id="258345738" Language="SFX">
+							<ShortName>Proto_BGM_Forest-001.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-001_10C4C929.wem</Path>
+						</File>
+						<File Id="258920266" Language="SFX">
+							<ShortName>Proto_BGM_Forest-002.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-002_10C4C929.wem</Path>
+						</File>
+						<File Id="811728653" Language="SFX">
+							<ShortName>Proto_BGM_Forest-003.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-003_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="395039606" Name="Play_SFX_Dash" ObjectPath="\Events\Default Work Unit\Play_SFX_Dash" DurationType="OneShot" DurationMin="1.043521" DurationMax="1.043521">
+					<IncludedMemoryFiles>
+						<File Id="655071278" Language="SFX">
+							<ShortName>Proto_SFX_Dash.wav</ShortName>
+							<Path>SFX\Proto_SFX_Dash_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

@@ -5,8 +5,9 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{49671E42-7CA4-49D5-89E4-E515B4575E43}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Player_Hit_Stone" ID="{2E5ED439-C32C-447C-8F24-03FAB522A04C}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="BG_Music" ID="{BDCF1B77-FF5C-4725-B0F3-836143D59DB6}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BGM_Forest" ID="{C284CF27-542D-438D-91AB-E719901995EC}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Athmo" ID="{4E7FD811-2123-4486-BEA7-A08F5B860A96}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SFX_Dash" ID="{17CF3265-EBEE-47C8-9387-E9E7D9237305}" WorkUnitID="{D0B704D1-1082-4AB5-8A74-9EF1D93E2684}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

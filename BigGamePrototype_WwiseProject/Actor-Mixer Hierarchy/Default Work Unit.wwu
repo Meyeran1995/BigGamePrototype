@@ -3,11 +3,16 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{6FDC3C6A-F660-4E61-93EF-F5E7218F2A3A}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="Mysterious Shapes" ID="{26013C68-E1EF-4345-9A54-BD1920152406}" ShortID="932054525">
+				<RandomSequenceContainer Name="Footsteps" ID="{3B077843-C894-4AA2-87BF-E82F854822A3}" ShortID="1717592">
 					<PropertyList>
-						<Property Name="Lowpass" Type="int16">
+						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
-								<Value>27</Value>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -20,99 +25,790 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="Mysterious Shapes" ID="{A6D09F59-6399-465E-81DD-CF5F7551A883}">
-							<Language>SFX</Language>
-							<AudioFile>Mysterious Shapes.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="161403594"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ObjectLists/>
-					<ActiveSourceList>
-						<ActiveSource Name="Mysterious Shapes" ID="{A6D09F59-6399-465E-81DD-CF5F7551A883}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Nighty exploration" ID="{77500F23-87BA-401A-B652-C7C06CE8A60E}" ShortID="782615944">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Nighty exploration" ID="{A6723A6B-B655-4EE3-AF4F-A0A9DD6F913C}">
-							<Language>SFX</Language>
-							<AudioFile>Nighty exploration.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="774666959"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ObjectLists/>
-					<ActiveSourceList>
-						<ActiveSource Name="Nighty exploration" ID="{A6723A6B-B655-4EE3-AF4F-A0A9DD6F913C}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="XyloSadness" ID="{BEB9F0FD-66D9-4B3E-AF67-798579330DD2}" ShortID="133362674">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="XyloSadness" ID="{C1414002-A09A-4D26-AA5C-570426B3BE39}">
-							<Language>SFX</Language>
-							<AudioFile>XyloSadness.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="502082903"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ObjectLists/>
-					<ActiveSourceList>
-						<ActiveSource Name="XyloSadness" ID="{C1414002-A09A-4D26-AA5C-570426B3BE39}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="SFX_clonk" ID="{CCF73E9E-1622-49C1-84DE-4D372DA2F123}" ShortID="150146260">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>12</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="SFX_clonk" ID="{771F7E41-0D91-41A1-930D-30FAA93E2EE5}">
+						<Sound Name="single_step-01" ID="{C86C4261-2005-49DE-8980-26C8BB6FA9CB}" ShortID="391687686">
 							<PropertyList>
-								<Property Name="FadeOutDuration" Type="Real64" Value="0.290582408070678"/>
-								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5C792442-16E6-4B33-8F40-B20ABB0C21D8}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{93A31566-89A9-4D11-B610-BBA0AAB54F7C}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="126"/>
+													<Property Name="Min" Type="Real64" Value="-51"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8EED1714-FB78-4572-89CB-9376EB8D7C7B}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="3"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
-							<Language>SFX</Language>
-							<AudioFile>SFX_clonk.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="898658011"/>
-							</MediaIDList>
-						</AudioFileSource>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="single_step" ID="{02FC04C4-8832-420F-9376-6857A0361D1F}">
+									<Language>SFX</Language>
+									<AudioFile>single_step.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="771979116"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="single_step" ID="{02FC04C4-8832-420F-9376-6857A0361D1F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="single_step-02" ID="{2EDE71A5-3D28-494A-A7E1-15F72A1C8407}" ShortID="1049163209">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{383835A5-04D5-4B11-A23E-224ACF48C001}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="126"/>
+													<Property Name="Min" Type="Real64" Value="-51"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FF5FCB67-9F84-4F28-AB5F-92D36EFF85B8}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="3"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="single_step-02" ID="{4EBA3C60-265D-4F6A-BFFF-80236123D4CF}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.26829268292683"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.418938307030129"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>single_step-02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="432794865"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="single_step-02" ID="{4EBA3C60-265D-4F6A-BFFF-80236123D4CF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="single_step-03" ID="{EBED7428-4FCA-465F-88E1-39FBB6207423}" ShortID="1055684157">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F52EEC70-CEF0-481E-8DDE-6356934F2CBC}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="126"/>
+													<Property Name="Min" Type="Real64" Value="-51"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{EA55E7CD-A81B-4F55-981B-2E4CCA8CC18A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="3"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="single_step-03" ID="{F6E52968-D463-46E9-A3F5-4B8885B63495}">
+									<Language>SFX</Language>
+									<AudioFile>single_step-03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="584025872"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="single_step-03" ID="{F6E52968-D463-46E9-A3F5-4B8885B63495}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
-					<ActiveSourceList>
-						<ActiveSource Name="SFX_clonk" ID="{771F7E41-0D91-41A1-930D-30FAA93E2EE5}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
+				</RandomSequenceContainer>
+				<Folder Name="BGM" ID="{15B3A396-492E-4900-899F-2A830A7E7690}" ShortID="325006832">
+					<ChildrenList>
+						<Sound Name="Mysterious Shapes" ID="{26013C68-E1EF-4345-9A54-BD1920152406}" ShortID="932054525">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>27</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Mysterious Shapes" ID="{A6D09F59-6399-465E-81DD-CF5F7551A883}">
+									<Language>SFX</Language>
+									<AudioFile>Mysterious Shapes.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="161403594"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Mysterious Shapes" ID="{A6D09F59-6399-465E-81DD-CF5F7551A883}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Folder Name="ExplorationTheme" ID="{6D250C1D-968F-4F85-9C46-A814FF20C0F5}" ShortID="224624322">
+							<ChildrenList>
+								<Sound Name="Proto_BGM_Forest-001" ID="{07302B1B-13FC-43DF-95FF-9FCC5A052754}" ShortID="741017790">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_BGM_Forest-001" ID="{CDEDEA39-5862-4DCB-A11F-9E726CFF7A5F}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_BGM_Forest-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="258345738"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_BGM_Forest-001" ID="{CDEDEA39-5862-4DCB-A11F-9E726CFF7A5F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_BGM_Forest-002" ID="{A836FF5D-C2FD-4C38-BC68-AC842730E7D2}" ShortID="932847808">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_BGM_Forest-002" ID="{77F65858-33DE-49F2-AC00-CCC64FB4E645}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_BGM_Forest-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="258920266"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_BGM_Forest-002" ID="{77F65858-33DE-49F2-AC00-CCC64FB4E645}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_BGM_Forest-003" ID="{F1060265-9CF6-422D-8BA0-5D19B8C2586C}" ShortID="873759520">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_BGM_Forest-003" ID="{A656D3DF-3FD7-403D-83D1-EF8084820D59}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_BGM_Forest-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="811728653"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_BGM_Forest-003" ID="{A656D3DF-3FD7-403D-83D1-EF8084820D59}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Athmo" ID="{990A1A2F-2BCA-43B2-ADC2-92B2BC0DFDB5}" ShortID="80976730">
+					<ChildrenList>
+						<Sound Name="Proto_Athmo_Forest" ID="{630FA243-AF39-4A32-8BFC-DCD62508B86A}" ShortID="488225316">
+							<PropertyList>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Proto_Athmo_Forest" ID="{4644F592-AC1C-4B5C-BB76-3B8CB81EEA83}">
+									<Language>SFX</Language>
+									<AudioFile>Proto_Athmo_Forest.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="49428997"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Proto_Athmo_Forest" ID="{4644F592-AC1C-4B5C-BB76-3B8CB81EEA83}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="SFX" ID="{D4C97DF3-595A-4684-8FE8-372F0741612D}" ShortID="1024737506">
+					<ChildrenList>
+						<Folder Name="Proto_SFX_TreeNoise" ID="{25469D4D-3DC4-4225-8E38-A652E699FCE0}" ShortID="1069144262">
+							<ChildrenList>
+								<Sound Name="Proto_SFX_TreeNoise-001" ID="{59C9F474-08EF-44E4-9302-6BA75860DADD}" ShortID="748406885">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-001" ID="{937ECEA3-2F6D-4BCD-BCEA-22860455A781}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="630298482"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-001" ID="{937ECEA3-2F6D-4BCD-BCEA-22860455A781}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-002" ID="{2228CCC0-D22F-4463-994D-00F55E70107D}" ShortID="158675357">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-002" ID="{425571C8-DC5F-42BD-9B96-5676E6A7B26F}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="226756893"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-002" ID="{425571C8-DC5F-42BD-9B96-5676E6A7B26F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-003" ID="{29A94256-2214-4E1C-842E-FCD26EC0154B}" ShortID="344632224">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-003" ID="{A023C58E-8F9F-4F93-B109-77A7FE253BA0}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="309094987"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-003" ID="{A023C58E-8F9F-4F93-B109-77A7FE253BA0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-004" ID="{614EFDFE-70CD-4563-91CA-2642D24717EA}" ShortID="409153947">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-004" ID="{398C023F-9134-442B-A086-D3275F39EA61}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="573165322"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-004" ID="{398C023F-9134-442B-A086-D3275F39EA61}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-005" ID="{CBF4DE22-BEA3-41C5-869B-091C0F7CB49D}" ShortID="905696266">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-005" ID="{5737A3BB-0743-47EC-9B2B-7991F1716CD5}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="63293504"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-005" ID="{5737A3BB-0743-47EC-9B2B-7991F1716CD5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-006" ID="{C273BC90-C60A-4BB4-9B95-0DAC91466194}" ShortID="584250304">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-006" ID="{B03FF1E8-C564-48D3-A2A9-271E962E2C96}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-006.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="444324373"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-006" ID="{B03FF1E8-C564-48D3-A2A9-271E962E2C96}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-007" ID="{ED4F1A4A-33B0-4819-A4A8-5D8D4ED57E14}" ShortID="116957445">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-007" ID="{0F84F664-C424-482E-84AD-3A37010747AA}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-007.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="794012352"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-007" ID="{0F84F664-C424-482E-84AD-3A37010747AA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-008" ID="{66E096E3-BFE5-4DED-9481-CCD1C9C53B9B}" ShortID="1043905564">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-008" ID="{F673FA21-4FBE-4454-B993-EA551919269D}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="207877319"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-008" ID="{F673FA21-4FBE-4454-B993-EA551919269D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-009" ID="{691C26D3-E182-4102-9949-2F8B0DFA08F2}" ShortID="665222256">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-009" ID="{E8B68383-BE2A-4355-A57B-D0428EEDE47E}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-009.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="998431438"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-009" ID="{E8B68383-BE2A-4355-A57B-D0428EEDE47E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-010" ID="{A3415980-1AB0-40FE-955D-6327C178B203}" ShortID="109731380">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-010" ID="{FE0EF465-F838-475E-9014-F62C1FE09387}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-010.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="839314157"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-010" ID="{FE0EF465-F838-475E-9014-F62C1FE09387}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-011" ID="{49FCFC09-C61B-4AF2-AB33-F5C554DE5FB0}" ShortID="547967018">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-011" ID="{A0268C3D-837D-408B-936F-926CED34182C}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-011.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="335324030"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-011" ID="{A0268C3D-837D-408B-936F-926CED34182C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-012" ID="{05B61D5B-B09D-4BEC-84FF-14908C55A81C}" ShortID="790480684">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-012" ID="{39B2C4EE-FD20-4C6C-BC86-30547D6CA190}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-012.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="993727623"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-012" ID="{39B2C4EE-FD20-4C6C-BC86-30547D6CA190}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-013" ID="{B1710BB7-3F8E-467E-BC96-876F15836518}" ShortID="27584802">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-013" ID="{A4A6AFC1-6057-40D9-B88F-D86316AF11CF}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-013.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="478459600"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-013" ID="{A4A6AFC1-6057-40D9-B88F-D86316AF11CF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-014" ID="{7AA60779-28D4-4388-AC7F-B5A9F7D902EE}" ShortID="653929432">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-014" ID="{560C5AE2-1410-42EA-9F21-E6FA3516D442}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-014.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="763636482"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-014" ID="{560C5AE2-1410-42EA-9F21-E6FA3516D442}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Proto_SFX_TreeNoise-015" ID="{99E444B4-6035-4EE9-999E-17BFEF4B7149}" ShortID="444562675">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Proto_SFX_TreeNoise-015" ID="{A4E40B14-529E-4698-BD07-6A1F6FB114E2}">
+											<Language>SFX</Language>
+											<AudioFile>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-015.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="942434708"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Proto_SFX_TreeNoise-015" ID="{A4E40B14-529E-4698-BD07-6A1F6FB114E2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Sound Name="SFX_clonk" ID="{CCF73E9E-1622-49C1-84DE-4D372DA2F123}" ShortID="150146260">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_clonk" ID="{771F7E41-0D91-41A1-930D-30FAA93E2EE5}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.290582408070678"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_clonk.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="898658011"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_clonk" ID="{771F7E41-0D91-41A1-930D-30FAA93E2EE5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Proto_SFX_Dash" ID="{92C7F2DB-5717-4844-A06D-21945B69A383}" ShortID="668504735">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Proto_SFX_Dash" ID="{7BFF43C5-4115-4FCB-BEA0-92AF80E8A3F5}">
+									<Language>SFX</Language>
+									<AudioFile>Proto_SFX_Dash.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="655071278"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Proto_SFX_Dash" ID="{7BFF43C5-4115-4FCB-BEA0-92AF80E8A3F5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_puzzle-solved" ID="{0F333D5D-D5E9-4131-B7E7-283328B7B521}" ShortID="965926699">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_puzzle-solved" ID="{9FC55DA5-22CF-4811-9AE1-0085CCC4E7AB}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_puzzle-solved.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="585331536"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_puzzle-solved" ID="{9FC55DA5-22CF-4811-9AE1-0085CCC4E7AB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_wrong-stroke" ID="{5FA8A0B9-C31F-4850-8298-49755DDE0505}" ShortID="726969964">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9FEC26B0-3E34-4DEF-991B-6FCD082A2050}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C37DD43E-9551-452D-837F-84DA11031A64}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_wrong-stroke" ID="{654E49BE-961A-4F23-95DC-EB2E3DDA7B03}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_wrong-stroke.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="610496856"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_wrong-stroke" ID="{654E49BE-961A-4F23-95DC-EB2E3DDA7B03}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
