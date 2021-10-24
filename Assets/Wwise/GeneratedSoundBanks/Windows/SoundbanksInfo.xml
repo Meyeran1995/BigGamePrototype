@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Wwise_Projects\BigGamePrototype\</ProjectRoot>
+		<SourceFilesRoot>C:\Wwise_Projects\BigGamePrototype\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Wwise_Projects\BigGamePrototype\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Wwise_Projects\BigGamePrototype\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1958929096">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="English(US)" Hash="646061802">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>English(US)\Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="789859208" Name="Play_Athmo_Loop" ObjectPath="\Events\Default Work Unit\Play_Athmo_Loop">
+					<IncludedMemoryFiles>
+						<File Id="863320480" Language="SFX">
+							<ShortName>Proto_Athmo_Forest.wav</ShortName>
+							<Path>SFX\Proto_Athmo_Forest_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1149661122" Name="Play_BGM_PuzzleTheme" ObjectPath="\Events\Default Work Unit\Play_BGM_PuzzleTheme">
+					<IncludedMemoryFiles>
+						<File Id="912238258" Language="SFX">
+							<ShortName>Proto_Sketch_Mysterious-Shapes.wav</ShortName>
+							<Path>SFX\Proto_Sketch_Mysterious-Shapes_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2962108968" Name="Play_ExplorationTheme" ObjectPath="\Events\Default Work Unit\Play_ExplorationTheme"/>
+				<Event Id="395039606" Name="Play_SFX_Dash" ObjectPath="\Events\Default Work Unit\Play_SFX_Dash">
+					<IncludedMemoryFiles>
+						<File Id="240647937" Language="SFX">
+							<ShortName>Proto_SFX_Dash.wav</ShortName>
+							<Path>SFX\Proto_SFX_Dash_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3551498181" Name="Play_SFX_PuzzleSolved" ObjectPath="\Events\Default Work Unit\Play_SFX_PuzzleSolved">
+					<IncludedMemoryFiles>
+						<File Id="23652625" Language="SFX">
+							<ShortName>SFX_puzzle-solved.wav</ShortName>
+							<Path>SFX\SFX_puzzle-solved_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="444127832" Name="Play_SFX_TreeNoise" ObjectPath="\Events\Default Work Unit\Play_SFX_TreeNoise">
+					<IncludedMemoryFiles>
+						<File Id="9806348" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-010.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-010_10C4C929.wem</Path>
+						</File>
+						<File Id="49816365" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-012.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-012_10C4C929.wem</Path>
+						</File>
+						<File Id="75019604" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-009.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-009_10C4C929.wem</Path>
+						</File>
+						<File Id="185833644" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-008.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-008_10C4C929.wem</Path>
+						</File>
+						<File Id="271272095" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-011.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-011_10C4C929.wem</Path>
+						</File>
+						<File Id="316375401" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-004.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-004_10C4C929.wem</Path>
+						</File>
+						<File Id="435103319" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-005.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-005_10C4C929.wem</Path>
+						</File>
+						<File Id="771429532" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-003.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-003_10C4C929.wem</Path>
+						</File>
+						<File Id="928317015" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-014.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-014_10C4C929.wem</Path>
+						</File>
+						<File Id="946525139" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-015.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-015_10C4C929.wem</Path>
+						</File>
+						<File Id="957547361" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-002.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-002_10C4C929.wem</Path>
+						</File>
+						<File Id="961707014" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-013.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-013_10C4C929.wem</Path>
+						</File>
+						<File Id="981519387" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-006.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-006_10C4C929.wem</Path>
+						</File>
+						<File Id="1058882845" Language="SFX">
+							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-001.wav</ShortName>
+							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-001_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1004866350" Name="Play_VO_Tree" ObjectPath="\Events\Default Work Unit\Play_VO_Tree">
+					<IncludedMemoryFiles>
+						<File Id="366672927" Language="English(US)">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>Voices\English(US)\Proto_Voiceover_Tree_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
