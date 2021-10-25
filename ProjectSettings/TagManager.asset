@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lineparent
+  - Trail
   layers:
   - Default
   - TransparentFX

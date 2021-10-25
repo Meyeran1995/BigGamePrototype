@@ -1,72 +1,77 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PuzzleZoneConnector : MonoBehaviour
 {
-    private static Tuple<int, Vector3> lastPosition, currentPosition;
-    private static bool firstZoneEntered;
-    private static List<Tuple<int, int>> connections;
+    public static readonly List<PuzzleZone> Zones = new List<PuzzleZone>();
+    private static PuzzleZone lastZone, currentZone;
 
     [Header("Connections")]
     [SerializeField] private Material connectionMaterial;
     private static Material staticMaterial;
     private static Transform rendererParent;
+    private static PlayerPuzzleTrail playerTrail;
+
+    public static bool FirstZoneAcquired => currentZone != null;
 
     private void Awake()
     {
-        connections = new List<Tuple<int, int>>();
         staticMaterial = connectionMaterial;
         rendererParent = GameObject.FindGameObjectWithTag("Lineparent").transform;
+        playerTrail = GameObject.FindGameObjectWithTag("Trail").GetComponent<PlayerPuzzleTrail>();
     }
 
-    public static void OnZoneEntered(int zoneIndex, Vector3 zonePosition)
+    public static void OnZoneEntered(PuzzleZone zone)
     {
-        if (firstZoneEntered)
+        if (currentZone)
         {
-            if (zoneIndex == currentPosition.Item1) return;
+            if (zone == currentZone) return;
             
-            lastPosition = currentPosition;
-            currentPosition = new Tuple<int, Vector3>(zoneIndex,zonePosition);
+            lastZone = currentZone;
+            currentZone = zone;
             OnZonesConnected();
         }
         else
         {
-            currentPosition = new Tuple<int, Vector3>(zoneIndex,zonePosition);
-            firstZoneEntered = true;
+            currentZone = zone;
+            playerTrail.ConnectToPlayer(zone);
         }
     }
 
     private static void OnZonesConnected()
     {
-        firstZoneEntered = false;
-
-        if (IsAlreadyConnected(lastPosition.Item1, currentPosition.Item1)) return;
+        if (lastZone.IsConnected) return;
         
-        LineRenderer line = new GameObject($"Connector {lastPosition.Item2} to {currentPosition.Item2}", typeof(LineRenderer))
+        if (!lastZone.CanBeConnectedToZone(currentZone))
+        {
+            ClearActiveZones();
+            return;
+        }
+
+        lastZone.SetToConnected();
+        
+        var lastZonePosition = lastZone.transform.position;
+        var currentZonePosition = currentZone.transform.position;
+        
+        LineRenderer line = new GameObject($"Connector {lastZonePosition} to {currentZonePosition}", typeof(LineRenderer))
                 .GetComponent<LineRenderer>();
         
-        line.SetPosition(0, lastPosition.Item2);
-        line.SetPosition(1, currentPosition.Item2);
+        line.SetPosition(0, lastZonePosition);
+        line.SetPosition(1, currentZonePosition);
         line.sharedMaterial = staticMaterial;
         line.transform.SetParent(rendererParent);
         
-        connections.Add(new Tuple<int, int>(lastPosition.Item1, currentPosition.Item1));
+        ClearActiveZones();
+        CheckForPuzzleSolveProcess();
     }
 
-    private static bool IsAlreadyConnected(int firstIndex, int secondIndex)
+    private static void CheckForPuzzleSolveProcess()
     {
-        foreach (var connection in connections)
-        {
-            if (connection.Item1 != firstIndex && connection.Item2 != firstIndex) continue;
-            
-            if (connection.Item2 == secondIndex || connection.Item1 == secondIndex)
-            {
-                return true;
-            }
-        }
+        if (Zones.Any(zone => !zone.IsConnected)) return;
 
-        return false;
+        Debug.Log("Puzzle solved");
+        playerTrail.Disconnect();
     }
 
     public static void ResetConnections()
@@ -76,7 +81,18 @@ public class PuzzleZoneConnector : MonoBehaviour
             Destroy(linerenderer.gameObject);
         }
 
-        connections.Clear();
-        firstZoneEntered = false;
+        foreach (var zone in Zones)
+        {
+            zone.ResetConnectionStatus();
+        }
+        
+        ClearActiveZones();
+    }
+
+    private static void ClearActiveZones()
+    {
+        currentZone = null;
+        lastZone = null;
+        playerTrail.Disconnect();
     }
 }
