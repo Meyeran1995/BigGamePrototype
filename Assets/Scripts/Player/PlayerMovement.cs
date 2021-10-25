@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
     private PlayerCollision collision;
-    
+
     [Header("Basic Movement")]
     [Range(1f, 20f)] public float moveSpeed;
     private Vector3 moveDir;
@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool invertMovement;
 
     [Header("Dashing")]
-    [SerializeField] [Range(1.25f, 2f)]private float dashPower;
+    [SerializeField] [Range(0.1f, 2f)] private float dashPower;
+    [SerializeField] private AnimationCurve dashPowerCurve;
     [SerializeField] private int dashFrames;
     [HideInInspector] public bool isDashing;
     [SerializeField] private DashEffect effect;
@@ -24,22 +25,22 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         collision = GetComponent<PlayerCollision>();
     }
-    
+
     private void FixedUpdate()
     {
         if (!isMoving || isDashing) return;
         transform.hasChanged = true;
         Move();
     }
-    
+
     /// <summary>
     /// Moves into current direction, after probing for collision
     /// </summary>
     private void Move()
     {
         var currentMovement = moveDir * Time.fixedDeltaTime;
-        
-        if(collision.ProbeCollisionOnGroundPlane(currentMovement))
+
+        if (collision.ProbeCollisionOnGroundPlane(currentMovement))
         {
             rb.MovePosition(collision.GetImpactPosition());
         }
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         moveDir.z += invertMovement ? -amount * moveSpeed : amount * moveSpeed;
         isMoving = true;
     }
-    
+
     /// <summary>
     /// Adds horizontal movement to this players MoveVector
     /// </summary>
@@ -77,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         moveDir.z = 0f;
         isMoving = moveDir.x != 0f;
     }
-    
+
     /// <summary>
     /// Stops movement on the horizontal axis
     /// </summary>
@@ -86,35 +87,37 @@ public class PlayerMovement : MonoBehaviour
         moveDir.x = 0f;
         isMoving = moveDir.z != 0f;
     }
-    
+
     /// <summary>
     /// Performs a dash in movement direction. Can only be used whilst moving
     /// </summary>
     public void Dash()
     {
         if (!isMoving || isDashing) return;
-        
+
         isDashing = true;
         StartCoroutine(PerformDash());
     }
-    
+
     private IEnumerator PerformDash()
     {
         var startingPos = rb.position;
-        var dashDirection = moveDir * dashPower;
+        var localMoveDir = moveDir;
+        var dashDirection = localMoveDir * dashPower;
         var targetPos = startingPos + dashDirection;
         var dashIncrement = dashDirection / dashFrames;
+        float dashEvalStep =1 / (float)dashFrames;
         bool hasCollided = false;
         float targetDist = 0f;
 
         //Debug.Log($"Attempting to dash from {startingPos} to {targetPos}");
-        
-        if(collision.ProbeCollisionOnGroundPlane(dashDirection))
+
+        if (collision.ProbeCollisionOnGroundPlane(dashDirection))
         {
             targetPos = collision.GetImpactPosition();
             hasCollided = true;
             targetDist = (rb.position - targetPos).magnitude;
-            
+
             if (rb.position == targetPos)
             {
                 isDashing = false;
@@ -127,11 +130,20 @@ public class PlayerMovement : MonoBehaviour
         effect.OrderShadows(moveDir.normalized);
 
         Vector3 nextPos = rb.position;
-        
-        for (int i = dashFrames; i > 0; i--)
+
+        for (int i = 0; i < dashFrames; i++)
         {
-            nextPos += dashIncrement;
+            // Calculate new DashPowerStep
+            dashEvalStep = 1 / (float)dashFrames;
+            Debug.Log(dashEvalStep);
+            var currentDashPowerMod = dashPowerCurve.Evaluate(dashEvalStep * i);
+            dashDirection = localMoveDir * (dashPower * currentDashPowerMod);
+            //targetPos = startingPos + dashDirection;
+            dashIncrement = dashDirection / dashFrames;
             
+            
+            nextPos += dashIncrement;
+
             if (hasCollided)
             {
                 if (Vector3.Distance(startingPos, nextPos) > targetDist)
@@ -143,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
                     yield break;
                 }
             }
-            
+
             //Debug.Log($"Going to {nextPos}");
             rb.MovePosition(nextPos);
             yield return new WaitForFixedUpdate();
