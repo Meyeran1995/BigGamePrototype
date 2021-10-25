@@ -68,4 +68,4 @@ crashlytics-build.properties
 *.prof
 *.validationcache
 /Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
-/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset.meta
+/[Aa]ssets/[Ww]wise/**/*.meta
