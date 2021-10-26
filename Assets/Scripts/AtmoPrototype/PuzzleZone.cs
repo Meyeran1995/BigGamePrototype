@@ -9,26 +9,21 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 {
+    protected static PlayerMovement movement;
     [SerializeField] private int zoneIndex;
     [SerializeField] private PuzzleZone partner;
     private int zonePartnerIndex;
+    [SerializeField] private bool isConnected;
+    
     public int ZoneIndex => zoneIndex;
     public int PartnerIndex => zonePartnerIndex;
-    
-    protected static PlayerMovement movement;
-
-    [SerializeField] private bool isConnected;
-    public bool IsConnected => isConnected;
+    public bool IsConnected => isConnected || partner == null;
 
     private void Awake()
     {
         if (partner)
         {
             zonePartnerIndex = partner.zoneIndex;
-        }
-        else
-        {
-            isConnected = true;
         }
         
         if (!movement)
@@ -43,20 +38,22 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (!movement.isDashing && !PuzzleZoneConnector.FirstZoneAcquired) return;
-        PuzzleZoneConnector.OnZoneEntered(this);
+        if (!PuzzleZoneConnector.FirstZoneAcquired) return;
+        PuzzleZoneConnector.OnZoneConnectionAttempted(this);
     }
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (!movement.isDashing) return;
-        PuzzleZoneConnector.OnZoneEntered(this);
+        if (isConnected || !movement.isDashing) return;
+        PuzzleZoneConnector.OnZonePulled(this);
     }
 
     public bool CanBeConnectedToZone(PuzzleZone other) => other != null && partner != null && other.zoneIndex == zonePartnerIndex;
     
     public bool Equals(PuzzleZone other) => other != null && other.zoneIndex == zoneIndex && other.zonePartnerIndex == zonePartnerIndex;
-    
+
+    #region EditorOnly
+
 #if UNITY_EDITOR
 
     protected virtual void OnValidate()
@@ -75,4 +72,5 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
     
 #endif
 
+    #endregion
 }
