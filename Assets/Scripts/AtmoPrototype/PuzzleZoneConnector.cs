@@ -22,33 +22,28 @@ public class PuzzleZoneConnector : MonoBehaviour
         playerTrail = GameObject.FindGameObjectWithTag("Trail").GetComponent<PlayerPuzzleTrail>();
     }
 
-    public static void OnZoneEntered(PuzzleZone zone)
+    public static void OnZonePulled(PuzzleZone zone)
     {
-        if (currentZone)
-        {
-            if (zone == currentZone) return;
-            
-            lastZone = currentZone;
-            currentZone = zone;
-            OnZonesConnected();
-        }
-        else
-        {
-            currentZone = zone;
-            playerTrail.ConnectToPlayer(zone);
-        }
+        currentZone = zone;
+        playerTrail.ConnectToPlayer(zone);
     }
-
-    private static void OnZonesConnected()
+    
+    public static void OnZoneConnectionAttempted(PuzzleZone zone)
     {
-        if (lastZone.IsConnected) return;
-        
-        if (!lastZone.CanBeConnectedToZone(currentZone))
+        if (zone == currentZone || !currentZone.CanBeConnectedToZone(zone))
         {
             ClearActiveZones();
             return;
         }
+        
+        OnZonesConnected(zone);
+    }
 
+    private static void OnZonesConnected(PuzzleZone zone)
+    {
+        lastZone = currentZone;
+        currentZone = zone;
+        
         lastZone.SetToConnected();
         
         var lastZonePosition = lastZone.transform.position;
@@ -76,9 +71,9 @@ public class PuzzleZoneConnector : MonoBehaviour
 
     public static void ResetConnections()
     {
-        foreach (Transform linerenderer in rendererParent)
+        foreach (Transform line in rendererParent)
         {
-            Destroy(linerenderer.gameObject);
+            Destroy(line.gameObject);
         }
 
         foreach (var zone in Zones)
