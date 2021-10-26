@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3e5ca587e535245975cb89524d6678, type: 3}
+  m_Name: 666DC025-AD38-4188-9A6D-55B20D3CECA5
+  m_EditorClassIdentifier: 
+  objectName: Play_VO_Tree
+  id: 1004866350
+  guid: 666DC025-AD38-4188-9A6D-55B20D3CECA5
