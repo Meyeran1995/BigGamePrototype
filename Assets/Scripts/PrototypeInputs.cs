@@ -57,6 +57,14 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PadMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""46c4d53e-0e2a-453c-8f87-1d080de86a2b"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -86,6 +94,39 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""2ebd5ed4-53d3-4584-9681-3f1fab912c5e"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""6584e91d-6582-4999-b495-3b4187d3ccc8"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4668ad56-d78a-4781-abca-b8e72b287e07"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2c8aaa59-828e-46fd-836c-6395c22ace1c"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -127,9 +168,53 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""82f99091-754d-4010-99ad-c3378c19793f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveVertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e599b1d0-1d3d-41b7-981a-178e8b307810"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveVertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""96a3230d-336f-4800-b6ab-21889b835ddd"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveVertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""a55b4e93-d815-4055-9ceb-67a08ad83485"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""269f8942-7c1a-4643-8c0f-1126352a7337"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -156,6 +241,17 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cde0741-9894-40c0-a082-053e2f706dc7"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PadMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -738,6 +834,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_SwapProjection = m_Player.FindAction("SwapProjection", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_PadMove = m_Player.FindAction("PadMove", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -804,6 +901,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_SwapProjection;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_PadMove;
     public struct PlayerActions
     {
         private @PrototypeInputs m_Wrapper;
@@ -813,6 +911,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @SwapProjection => m_Wrapper.m_Player_SwapProjection;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @PadMove => m_Wrapper.m_Player_PadMove;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -837,6 +936,9 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @PadMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
+                @PadMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
+                @PadMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -856,6 +958,9 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @PadMove.started += instance.OnPadMove;
+                @PadMove.performed += instance.OnPadMove;
+                @PadMove.canceled += instance.OnPadMove;
             }
         }
     }
@@ -1017,6 +1122,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnSwapProjection(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPadMove(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
