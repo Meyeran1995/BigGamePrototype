@@ -115,7 +115,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""4668ad56-d78a-4781-abca-b8e72b287e07"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""path"": ""<XInputController>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -126,7 +126,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""2c8aaa59-828e-46fd-836c-6395c22ace1c"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""path"": ""<XInputController>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -181,7 +181,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""e599b1d0-1d3d-41b7-981a-178e8b307810"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""path"": ""<XInputController>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -192,7 +192,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""96a3230d-336f-4800-b6ab-21889b835ddd"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""path"": ""<XInputController>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
