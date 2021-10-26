@@ -5,6 +5,7 @@ public class PlayerInputController : MonoBehaviour
 {
     private PrototypeInputs inputControls;
     private PlayerMovement movement;
+    private Vector2 move;
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -15,6 +16,8 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.MoveVertical.performed += OnMoveDirV;
         inputControls.Player.MoveVertical.canceled += OnMoveStopV;
         inputControls.Player.Dash.started += OnDash;
+        inputControls.Player.PadMove.performed += OnMove;
+        inputControls.Player.PadMove.canceled += OnMoveStop;
         inputControls.Player.SwapProjection.started += Camera.main.GetComponent<CameraProjectionSwapper>().OnCameraProjectionChange;
         inputControls.Player.Interact.started += GetComponent<PlayerInteraction>().OnTryInteract;
     }
@@ -25,6 +28,7 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.Dash.Enable();
         inputControls.Player.Interact.Enable();
         inputControls.Player.SwapProjection.Enable();
+        inputControls.Player.PadMove.Enable();
     }
 
     private void OnDisable()
@@ -34,6 +38,7 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.SwapProjection.Disable();
         inputControls.Player.Interact.Disable();
         inputControls.Player.Dash.Disable();
+        inputControls.Player.PadMove.Disable();
     }
 
     protected virtual void OnMoveDirV(InputAction.CallbackContext context) =>
@@ -42,9 +47,14 @@ public class PlayerInputController : MonoBehaviour
     private void OnMoveDirH(InputAction.CallbackContext context) =>
         movement.AddHorizontalMovement(context.ReadValue<float>());
 
+    private void OnMove(InputAction.CallbackContext context) => 
+        movement.AddMovement(context.ReadValue<Vector2>());
+
     private void OnMoveStopH(InputAction.CallbackContext context) => movement.StopHorizontalMovement();
 
     protected virtual void OnMoveStopV(InputAction.CallbackContext context) => movement.StopVerticalMovement();
+
+    private void OnMoveStop(InputAction.CallbackContext context) => movement.StopMovement();
 
     private void OnDash(InputAction.CallbackContext context) => movement.Dash();
 }
