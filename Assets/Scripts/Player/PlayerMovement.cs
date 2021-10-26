@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int dashFrames;
     [HideInInspector] public bool isDashing;
     [SerializeField] private DashEffect effect;
+    [SerializeField] private AK.Wwise.Event dashEvent;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isMoving || isDashing) return;
+
         transform.hasChanged = true;
         Move();
     }
@@ -96,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isMoving || isDashing) return;
 
         isDashing = true;
+        dashEvent.Post(gameObject);
         StartCoroutine(PerformDash());
     }
 

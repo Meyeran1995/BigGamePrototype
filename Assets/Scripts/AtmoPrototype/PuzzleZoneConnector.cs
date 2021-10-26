@@ -66,6 +66,7 @@ public class PuzzleZoneConnector : MonoBehaviour
         if (Zones.Any(zone => !zone.IsConnected)) return;
 
         Debug.Log("Puzzle solved");
+        AkSoundEngine.PostEvent("Play_SFX_PuzzleSolved", rendererParent.gameObject);
         playerTrail.Disconnect();
     }
 
