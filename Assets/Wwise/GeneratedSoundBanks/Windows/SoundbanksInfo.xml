@@ -3,7 +3,7 @@
 	<RootPaths>
 		<ProjectRoot>C:\Wwise_Projects\BigGamePrototype\</ProjectRoot>
 		<SourceFilesRoot>C:\Wwise_Projects\BigGamePrototype\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Wwise_Projects\BigGamePrototype\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<SoundBanksRoot>C:\Unity_Projects\BigGamePrototype\Assets\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>C:\Wwise_Projects\BigGamePrototype\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
@@ -16,12 +16,12 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="English(US)" Hash="646061802">
+		<SoundBank Id="3161908922" Language="English(US)" Hash="3298026504">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>English(US)\Main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="789859208" Name="Play_Athmo_Loop" ObjectPath="\Events\Default Work Unit\Play_Athmo_Loop">
+				<Event Id="789859208" Name="Play_Athmo_Loop" ObjectPath="\Events\Default Work Unit\Play_Athmo_Loop" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="863320480" Language="SFX">
 							<ShortName>Proto_Athmo_Forest.wav</ShortName>
@@ -29,16 +29,31 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1149661122" Name="Play_BGM_PuzzleTheme" ObjectPath="\Events\Default Work Unit\Play_BGM_PuzzleTheme">
+				<Event Id="1149661122" Name="Play_BGM_PuzzleTheme" ObjectPath="\Events\Default Work Unit\Play_BGM_PuzzleTheme" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="912238258" Language="SFX">
-							<ShortName>Proto_Sketch_Mysterious-Shapes.wav</ShortName>
-							<Path>SFX\Proto_Sketch_Mysterious-Shapes_10C4C929.wem</Path>
+						<File Id="490149523" Language="SFX">
+							<ShortName>Proto_BGM_Puzzle.wav</ShortName>
+							<Path>SFX\Proto_BGM_Puzzle_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2962108968" Name="Play_ExplorationTheme" ObjectPath="\Events\Default Work Unit\Play_ExplorationTheme"/>
-				<Event Id="395039606" Name="Play_SFX_Dash" ObjectPath="\Events\Default Work Unit\Play_SFX_Dash">
+				<Event Id="2962108968" Name="Play_ExplorationTheme" ObjectPath="\Events\Default Work Unit\Play_ExplorationTheme" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="131201414" Language="SFX">
+							<ShortName>Proto_BGM_Forest-001.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-001_D79FB2B7.wem</Path>
+						</File>
+						<File Id="534388530" Language="SFX">
+							<ShortName>Proto_BGM_Forest-003.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-003_D79FB2B7.wem</Path>
+						</File>
+						<File Id="710866978" Language="SFX">
+							<ShortName>Proto_BGM_Forest-002.wav</ShortName>
+							<Path>SFX\Proto_BGM_Forest-002_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="395039606" Name="Play_SFX_Dash" ObjectPath="\Events\Default Work Unit\Play_SFX_Dash" DurationType="OneShot" DurationMin="1.043521" DurationMax="1.043521">
 					<IncludedMemoryFiles>
 						<File Id="240647937" Language="SFX">
 							<ShortName>Proto_SFX_Dash.wav</ShortName>
@@ -46,7 +61,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3551498181" Name="Play_SFX_PuzzleSolved" ObjectPath="\Events\Default Work Unit\Play_SFX_PuzzleSolved">
+				<Event Id="3551498181" Name="Play_SFX_PuzzleSolved" ObjectPath="\Events\Default Work Unit\Play_SFX_PuzzleSolved" DurationType="OneShot" DurationMin="1.125563" DurationMax="1.125563">
 					<IncludedMemoryFiles>
 						<File Id="23652625" Language="SFX">
 							<ShortName>SFX_puzzle-solved.wav</ShortName>
@@ -54,7 +69,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="444127832" Name="Play_SFX_TreeNoise" ObjectPath="\Events\Default Work Unit\Play_SFX_TreeNoise">
+				<Event Id="444127832" Name="Play_SFX_TreeNoise" ObjectPath="\Events\Default Work Unit\Play_SFX_TreeNoise" DurationType="OneShot" DurationMin="2.386992" DurationMax="5.518776">
 					<IncludedMemoryFiles>
 						<File Id="9806348" Language="SFX">
 							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-010.wav</ShortName>
@@ -92,17 +107,9 @@
 							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-014.wav</ShortName>
 							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-014_10C4C929.wem</Path>
 						</File>
-						<File Id="946525139" Language="SFX">
-							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-015.wav</ShortName>
-							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-015_10C4C929.wem</Path>
-						</File>
 						<File Id="957547361" Language="SFX">
 							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-002.wav</ShortName>
 							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-002_10C4C929.wem</Path>
-						</File>
-						<File Id="961707014" Language="SFX">
-							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-013.wav</ShortName>
-							<Path>SFX\Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-013_10C4C929.wem</Path>
 						</File>
 						<File Id="981519387" Language="SFX">
 							<ShortName>Proto_SFX_TreeNoise\Proto_SFX_TreeNoise-006.wav</ShortName>
@@ -114,7 +121,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1004866350" Name="Play_VO_Tree" ObjectPath="\Events\Default Work Unit\Play_VO_Tree">
+				<Event Id="1004866350" Name="Play_VO_Tree" ObjectPath="\Events\Default Work Unit\Play_VO_Tree" DurationType="OneShot" DurationMin="2.301542" DurationMax="2.301542">
 					<IncludedMemoryFiles>
 						<File Id="366672927" Language="English(US)">
 							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
