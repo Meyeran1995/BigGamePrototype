@@ -61,6 +61,10 @@ crashlytics-build.properties
 # Rider
 /.idea/
 
+# Bakery
+/Assets/Bakery/
+/Assets/Editor/x64/Bakery/
+
 
 # Wwise Files and Folders
 .cache
