@@ -416,5 +416,5 @@ MonoBehaviour:
   eventToplay:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e7cd3f1e16458eb49870ea4cc5e1118a, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: bc7954511c2eca240bb9b8c29a7a9eca, type: 2}
   owner: {fileID: 4732270285933006373}
