@@ -76,13 +76,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds movement in both axis to this players MoveVector
+    /// Adds movement on both axes to this players MoveVector
     /// </summary>
     /// <param name="amount">Amount of movement to be added</param>
     public void AddMovement(Vector2 amount)
     {
-        Vector3 temp = new Vector3(amount.x, 0, amount.y);
-        moveDir = temp * moveSpeed;
+        moveDir = new Vector3(amount.x * moveSpeed, 0f, amount.y * moveSpeed);
         isMoving = true;
     }
     
@@ -128,15 +127,10 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator PerformDash()
     {
         var startingPos = rb.position;
-        var localMoveDir = moveDir;
-        var dashDirection = localMoveDir * dashPower;
+        var dashDirection = moveDir * dashPower;
         var targetPos = startingPos + dashDirection;
-        var dashIncrement = dashDirection / dashFrames;
-        float dashEvalStep = 1 / (float) dashFrames;
         bool hasCollided = false;
         float targetDist = 0f;
-
-        //Debug.Log($"Attempting to dash from {startingPos} to {targetPos}");
 
         if (collision.ProbeCollisionOnGroundPlane(dashDirection))
         {
@@ -147,7 +141,6 @@ public class PlayerMovement : MonoBehaviour
             if (rb.position == targetPos)
             {
                 isDashing = false;
-                //Debug.Log("We are directly in front of a wall");
                 yield break;
             }
         }
@@ -156,25 +149,20 @@ public class PlayerMovement : MonoBehaviour
         effect.OrderShadows(moveDir.normalized);
 
         Vector3 nextPos = rb.position;
+        float dashEvalStep = 1f / dashFrames;
 
         for (int i = 0; i < dashFrames; i++)
         {
             // Calculate new DashPowerStep
-            dashEvalStep = 1 / (float) dashFrames;
-            Debug.Log(dashEvalStep);
             var currentDashPowerMod = dashPowerCurve.Evaluate(dashEvalStep * i);
-            dashDirection = localMoveDir * (dashPower * currentDashPowerMod);
-            //targetPos = startingPos + dashDirection;
-            dashIncrement = dashDirection / dashFrames;
-
-
+            Vector3 dashIncrement = dashDirection * currentDashPowerMod / dashFrames;
+            
             nextPos += dashIncrement;
 
             if (hasCollided)
             {
                 if (Vector3.Distance(startingPos, nextPos) > targetDist)
                 {
-                    //Debug.Log($"Overshot targeted position {targetPos}, with nextPos {nextPos}");
                     rb.MovePosition(targetPos);
                     yield return new WaitForFixedUpdate();
                     ExitDash();
@@ -182,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            //Debug.Log($"Going to {nextPos}");
             rb.MovePosition(nextPos);
             yield return new WaitForFixedUpdate();
         }

@@ -5,7 +5,6 @@ public class PlayerInputController : MonoBehaviour
 {
     private PrototypeInputs inputControls;
     private PlayerMovement movement;
-    private Vector2 move;
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -41,7 +40,7 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.PadMove.Disable();
     }
 
-    protected virtual void OnMoveDirV(InputAction.CallbackContext context) =>
+    private void OnMoveDirV(InputAction.CallbackContext context) =>
         movement.AddVerticalMovement(context.ReadValue<float>());
     
     private void OnMoveDirH(InputAction.CallbackContext context) =>
@@ -52,7 +51,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnMoveStopH(InputAction.CallbackContext context) => movement.StopHorizontalMovement();
 
-    protected virtual void OnMoveStopV(InputAction.CallbackContext context) => movement.StopVerticalMovement();
+    private void OnMoveStopV(InputAction.CallbackContext context) => movement.StopVerticalMovement();
 
     private void OnMoveStop(InputAction.CallbackContext context) => movement.StopMovement();
 

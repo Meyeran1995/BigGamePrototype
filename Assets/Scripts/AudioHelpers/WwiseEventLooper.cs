@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-public class EventLooper : MonoBehaviour
+public class WwiseEventLooper : MonoBehaviour
 {
    [SerializeField] private float loopInterval;
    [SerializeField] private AK.Wwise.Event eventToLoop;
@@ -31,10 +31,7 @@ public class EventLooper : MonoBehaviour
    private void OnTriggerEnter(Collider other)
    {
       if (loopRoutine != null) return;
-      // {
-      //    Debug.Log("reentered but coroutine is there");
-      //    return;
-      // }
+
       loopRoutine = StartCoroutine(Loop());
    }
 }

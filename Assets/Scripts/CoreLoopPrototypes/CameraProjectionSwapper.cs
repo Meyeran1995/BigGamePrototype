@@ -1,31 +1,45 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraProjectionSwapper : MonoBehaviour
 {
-    private Camera mainCamera;
-    [SerializeField] private float distance;
+    [SerializeField] private CinemachineVirtualCamera followCamera;
     private float fieldOfView, orthographicSize;
+    private bool isOrthographic;
+    private Camera mainCam;
 
     private void Awake()
     {
-        mainCamera = Camera.main;
-        fieldOfView = mainCamera.fieldOfView;
-        // halfFrustumHeight is represented by orthographic size
-        orthographicSize = distance * Mathf.Tan(fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float distance = followCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance;
+        mainCam = Camera.main;
+        isOrthographic = mainCam.orthographic;
+        
+        if (isOrthographic)
+        {
+            orthographicSize = followCamera.m_Lens.OrthographicSize;
+            fieldOfView = 2f * Mathf.Atan(orthographicSize / distance) / Mathf.Deg2Rad;
+        }
+        else
+        {
+            fieldOfView = followCamera.m_Lens.FieldOfView;
+            // halfFrustumHeight is represented by orthographic size
+            orthographicSize = distance * Mathf.Tan(fieldOfView * 0.5f * Mathf.Deg2Rad);
+        }
     }
 
     public void OnCameraProjectionChange(InputAction.CallbackContext obj)
     {
-        mainCamera.orthographic = !mainCamera.orthographic;
+        isOrthographic = !isOrthographic;
+        mainCam.orthographic = isOrthographic;
 
-        if (mainCamera.orthographic)
+        if (isOrthographic)
         {
-            mainCamera.orthographicSize = orthographicSize;
+            followCamera.m_Lens.OrthographicSize = orthographicSize;
         }
         else
         {
-            mainCamera.fieldOfView = fieldOfView;
+            followCamera.m_Lens.FieldOfView = fieldOfView;
         }
     }
 }
