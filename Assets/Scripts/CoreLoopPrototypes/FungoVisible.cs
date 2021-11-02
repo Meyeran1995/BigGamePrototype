@@ -5,5 +5,6 @@ public class FungoVisible : MonoBehaviour
     private void Awake()
     {
         FungoVision.FungObjects.Add(gameObject);
+        gameObject.SetActive(false);
     }
 }
