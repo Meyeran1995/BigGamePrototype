@@ -297,7 +297,7 @@ MonoBehaviour:
   dashEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 44228b8e71cc2cc49affbfbee83028f4, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 11974eed2e4d80340a9947c0ab886d55, type: 2}
 --- !u!114 &2632762121086381087
 MonoBehaviour:
   m_ObjectHideFlags: 0
