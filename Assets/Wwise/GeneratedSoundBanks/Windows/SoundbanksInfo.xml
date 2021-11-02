@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Wwise_Projects\BigGamePrototype\</ProjectRoot>
-		<SourceFilesRoot>C:\Wwise_Projects\BigGamePrototype\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Unity_Projects\BigGamePrototype\Assets\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\WwiseProjects\BigGamePrototype\</ProjectRoot>
+		<SourceFilesRoot>C:\WwiseProjects\BigGamePrototype\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\UnityProjects\BigGamePrototype\Assets\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Wwise_Projects\BigGamePrototype\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\WwiseProjects\BigGamePrototype\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1958929096">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2691871305">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="English(US)" Hash="3298026504">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3770901062">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
-			<Path>English(US)\Main.bnk</Path>
+			<Path>Main.bnk</Path>
 			<IncludedEvents>
 				<Event Id="789859208" Name="Play_Athmo_Loop" ObjectPath="\Events\Default Work Unit\Play_Athmo_Loop" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -50,6 +50,30 @@
 						<File Id="710866978" Language="SFX">
 							<ShortName>Proto_BGM_Forest-002.wav</ShortName>
 							<Path>SFX\Proto_BGM_Forest-002_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="769534916" Name="Play_Node02" ObjectPath="\Events\Default Work Unit\Play_Node02" MaxAttenuation="30.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="881004887" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_33E9BB85.wem</Path>
+						</File>
+						<File Id="881004888" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_16324E78.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="769534917" Name="Play_Node03" ObjectPath="\Events\Default Work Unit\Play_Node03" MaxAttenuation="30.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="881004887" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_33E9BB85.wem</Path>
+						</File>
+						<File Id="994328165" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_B003B542.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -123,9 +147,29 @@
 				</Event>
 				<Event Id="1004866350" Name="Play_VO_Tree" ObjectPath="\Events\Default Work Unit\Play_VO_Tree" DurationType="OneShot" DurationMin="2.301542" DurationMax="2.301542">
 					<IncludedMemoryFiles>
-						<File Id="366672927" Language="English(US)">
+						<File Id="889579989" Language="SFX">
 							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
-							<Path>Voices\English(US)\Proto_Voiceover_Tree_10C4C929.wem</Path>
+							<Path>SFX\Proto_Voiceover_Tree_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3424546521" Name="Play_WrongNode" ObjectPath="\Events\Default Work Unit\Play_WrongNode" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="182251880" Language="SFX">
+							<ShortName>SFX_wrong-stroke.wav</ShortName>
+							<Path>SFX\SFX_wrong-stroke_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2953280430" Name="PlayNode01" ObjectPath="\Events\Default Work Unit\PlayNode01" MaxAttenuation="30.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="401018958" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_C90EAECB.wem</Path>
+						</File>
+						<File Id="881004889" Language="SFX">
+							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
+							<Path>SFX\Proto_Voiceover_Tree_341D445E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
