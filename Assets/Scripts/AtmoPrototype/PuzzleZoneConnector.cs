@@ -9,6 +9,7 @@ public class PuzzleZoneConnector : MonoBehaviour
 
     [Header("Connections")]
     [SerializeField] private Material connectionMaterial;
+    private static PuzzleAudioHint audioHints;
     private static Material staticMaterial;
     private static Transform rendererParent;
     private static PlayerPuzzleTrail playerTrail;
@@ -17,6 +18,7 @@ public class PuzzleZoneConnector : MonoBehaviour
 
     private void Awake()
     {
+        audioHints = GetComponent<PuzzleAudioHint>();
         staticMaterial = connectionMaterial;
         rendererParent = GameObject.FindGameObjectWithTag("Lineparent").transform;
         playerTrail = GameObject.FindGameObjectWithTag("Trail").GetComponent<PlayerPuzzleTrail>();
@@ -26,10 +28,13 @@ public class PuzzleZoneConnector : MonoBehaviour
     {
         currentZone = zone;
         playerTrail.ConnectToPlayer(zone);
+        audioHints.StartHintCue(zone);
     }
     
     public static void OnZoneConnectionAttempted(PuzzleZone zone)
     {
+        audioHints.StopHintCue(currentZone);
+        
         if (zone == currentZone || !currentZone.CanBeConnectedToZone(zone))
         {
             ClearActiveZones();
