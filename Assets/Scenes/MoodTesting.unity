@@ -19160,11 +19160,11 @@ GameObject:
   - component: {fileID: 2132487221}
   - component: {fileID: 2132487220}
   m_Layer: 0
-  m_Name: ThemController
+  m_Name: ThemeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2132487219
 Transform:
@@ -19229,7 +19229,7 @@ MonoBehaviour:
     initialListenerList: []
     useDefaultListeners: 1
   isEnvironmentAware: 1
-  isStaticObject: 0
+  isStaticObject: 1
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
