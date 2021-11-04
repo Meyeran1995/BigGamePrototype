@@ -28,12 +28,12 @@ public class PuzzleZoneConnector : MonoBehaviour
     {
         currentZone = zone;
         playerTrail.ConnectToPlayer(zone);
-        audioHints.StartHintCue(zone);
+        audioHints.StartHintCue(zone.Partner);
     }
     
     public static void OnZoneConnectionAttempted(PuzzleZone zone)
     {
-        audioHints.StopHintCue(currentZone);
+        audioHints.StopHintCue(currentZone.Partner);
         
         if (zone == currentZone || !currentZone.CanBeConnectedToZone(zone))
         {

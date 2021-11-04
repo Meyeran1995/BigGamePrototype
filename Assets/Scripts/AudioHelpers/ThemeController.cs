@@ -8,13 +8,13 @@ public class ThemeController : MonoBehaviour
     [SerializeField] private int startIndex;
     private int currentThemeIndex = -1;
     [Header("Music")]
-    [SerializeField] private MusicThemeSO[] themes;
+    [SerializeField] private EventEmitterSO[] themes;
 
     private void Start()
     {
         if(!playOnStart) return;
         
-        themes[startIndex].StartTheme(gameObject);
+        themes[startIndex].StartEmitting(gameObject);
         currentThemeIndex = startIndex;
     }
 
@@ -23,21 +23,21 @@ public class ThemeController : MonoBehaviour
         if(newThemeIndex < 0 || newThemeIndex == currentThemeIndex || newThemeIndex > themes.Length) return;
         
         if(currentThemeIndex >= 0)
-            themes[currentThemeIndex].StopTheme();
+            themes[currentThemeIndex].StopEmitting();
         
-        themes[newThemeIndex].StartTheme(gameObject);
+        themes[newThemeIndex].StartEmitting(gameObject);
     }
 
-    public void PlayTheme(MusicThemeSO theme)
+    public void PlayTheme(EventEmitterSO theme)
     {
         for (var index = 0; index < themes.Length; index++)
         {
             if(theme != themes[index]) continue;
 
-            theme.StartTheme(gameObject);
+            theme.StartEmitting(gameObject);
             
             if(currentThemeIndex >= 0)
-                themes[currentThemeIndex].StopTheme();
+                themes[currentThemeIndex].StopEmitting();
             
             currentThemeIndex = index;
             return;
@@ -50,7 +50,7 @@ public class ThemeController : MonoBehaviour
     {
         if(currentThemeIndex < 0) return;
 
-        themes[currentThemeIndex].StopTheme();
+        themes[currentThemeIndex].StopEmitting();
         currentThemeIndex = -1;
     }
 }

@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class PuzzleAudioHint : MonoBehaviour
 {
-    [SerializeField] private AK.Wwise.Event[] hintCues;
-
-    public void StartHintCue(PuzzleZone zone)
+    public void StartHintCue(PuzzleZone partnerZone)
     {
-        int index = zone.PartnerIndex;
-        if(index > hintCues.Length || index == -1) return;
+        var hint = partnerZone.Cue;
 
-        hintCues[index].Post(zone.Partner.gameObject);
+        if (hint == null) return;
+        hint.StartEmitting(partnerZone.gameObject);
     }
-    
-    public void StopHintCue(PuzzleZone zone)
-    {
-        int index = zone.PartnerIndex;
-        if(index > hintCues.Length || index == -1) return;
 
-        hintCues[index].Stop(zone.Partner.gameObject);
+    public void StopHintCue(PuzzleZone partnerZone)
+    {
+        var hint = partnerZone.Cue;
+
+        if (hint == null) return;
+        hint.StopEmitting();
     }
 }

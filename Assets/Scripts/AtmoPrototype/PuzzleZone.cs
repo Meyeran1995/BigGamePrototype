@@ -9,16 +9,17 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 {
-    protected static PlayerMovement movement;
+    private static PlayerMovement movement;
     [SerializeField] private int zoneIndex;
     [SerializeField] private PuzzleZone partner;
+    [SerializeField] private EventEmitterSO hintCue;
     [SerializeField] private bool isConnected;
-    
+
     public int ZoneIndex => zoneIndex;
     public int PartnerIndex => partner != null ? partner.zoneIndex : -1;
-
     public PuzzleZone Partner => partner;
     public bool IsConnected => isConnected || partner == null;
+    public EventEmitterSO Cue => hintCue;
 
     private void Awake()
     {
