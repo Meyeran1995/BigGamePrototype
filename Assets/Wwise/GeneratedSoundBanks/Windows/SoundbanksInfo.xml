@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3770901062">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3148722935">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -169,7 +169,7 @@
 						</File>
 						<File Id="881004889" Language="SFX">
 							<ShortName>Proto_Voiceover_Tree.wav</ShortName>
-							<Path>SFX\Proto_Voiceover_Tree_341D445E.wem</Path>
+							<Path>SFX\Proto_Voiceover_Tree_FB33BE22.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
