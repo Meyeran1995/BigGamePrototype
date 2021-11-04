@@ -4,20 +4,15 @@ using UnityEngine;
 public class FungoVision : MonoBehaviour
 {
     public static readonly List<GameObject> FungObjects = new List<GameObject>();
+    private bool visionIsActive;
 
-    public void EnableFungoVision()
+    public void ToggleFungoVision()
     {
+        visionIsActive = !visionIsActive;
+        
         foreach (var fung in FungObjects)
         {
-            fung.SetActive(true);
-        }
-    }
-
-    public void DisableFungoVision()
-    {
-        foreach (var fung in FungObjects)
-        {
-            fung.SetActive(false);
+            fung.SetActive(visionIsActive);
         }
     }
 }

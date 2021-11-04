@@ -12,20 +12,16 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
     protected static PlayerMovement movement;
     [SerializeField] private int zoneIndex;
     [SerializeField] private PuzzleZone partner;
-    private int zonePartnerIndex;
     [SerializeField] private bool isConnected;
     
     public int ZoneIndex => zoneIndex;
-    public int PartnerIndex => zonePartnerIndex;
+    public int PartnerIndex => partner != null ? partner.zoneIndex : -1;
+
+    public PuzzleZone Partner => partner;
     public bool IsConnected => isConnected || partner == null;
 
     private void Awake()
     {
-        if (partner)
-        {
-            zonePartnerIndex = partner.zoneIndex;
-        }
-        
         if (!movement)
             movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
@@ -48,9 +44,9 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
         PuzzleZoneConnector.OnZonePulled(this);
     }
 
-    public bool CanBeConnectedToZone(PuzzleZone other) => other != null && partner != null && other.zoneIndex == zonePartnerIndex;
+    public bool CanBeConnectedToZone(PuzzleZone other) => other != null && partner != null && other.zoneIndex == partner.zoneIndex;
     
-    public bool Equals(PuzzleZone other) => other != null && other.zoneIndex == zoneIndex && other.zonePartnerIndex == zonePartnerIndex;
+    public bool Equals(PuzzleZone other) => other != null && other.zoneIndex == zoneIndex && other.PartnerIndex == partner.zoneIndex;
 
     #region EditorOnly
 

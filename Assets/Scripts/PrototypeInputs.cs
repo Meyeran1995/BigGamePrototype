@@ -65,6 +65,14 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fungovision"",
+                    ""type"": ""Button"",
+                    ""id"": ""450b5337-af6f-424e-b4a1-68c790391033"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -180,12 +188,45 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""74a77464-084c-410b-ab3e-3bc0982dadd3"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""2cde0741-9894-40c0-a082-053e2f706dc7"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PadMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f112af2-b2ba-405c-b6c5-3004ca178ae4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Fungovision"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ec6591f-3365-4b18-9432-9d1be5c92271"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fungovision"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -769,6 +810,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         m_Player_SwapProjection = m_Player.FindAction("SwapProjection", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_PadMove = m_Player.FindAction("PadMove", throwIfNotFound: true);
+        m_Player_Fungovision = m_Player.FindAction("Fungovision", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -836,6 +878,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_SwapProjection;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_PadMove;
+    private readonly InputAction m_Player_Fungovision;
     public struct PlayerActions
     {
         private @PrototypeInputs m_Wrapper;
@@ -846,6 +889,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         public InputAction @SwapProjection => m_Wrapper.m_Player_SwapProjection;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @PadMove => m_Wrapper.m_Player_PadMove;
+        public InputAction @Fungovision => m_Wrapper.m_Player_Fungovision;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -873,6 +917,9 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @PadMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
                 @PadMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
                 @PadMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPadMove;
+                @Fungovision.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFungovision;
+                @Fungovision.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFungovision;
+                @Fungovision.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFungovision;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -895,6 +942,9 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
                 @PadMove.started += instance.OnPadMove;
                 @PadMove.performed += instance.OnPadMove;
                 @PadMove.canceled += instance.OnPadMove;
+                @Fungovision.started += instance.OnFungovision;
+                @Fungovision.performed += instance.OnFungovision;
+                @Fungovision.canceled += instance.OnFungovision;
             }
         }
     }
@@ -1057,6 +1107,7 @@ public class @PrototypeInputs : IInputActionCollection, IDisposable
         void OnSwapProjection(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPadMove(InputAction.CallbackContext context);
+        void OnFungovision(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

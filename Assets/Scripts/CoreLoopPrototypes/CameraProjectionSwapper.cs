@@ -1,6 +1,5 @@
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraProjectionSwapper : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class CameraProjectionSwapper : MonoBehaviour
         }
     }
 
-    public void OnCameraProjectionChange(InputAction.CallbackContext obj)
+    public void ChangeCameraProjection()
     {
         isOrthographic = !isOrthographic;
         mainCam.orthographic = isOrthographic;
