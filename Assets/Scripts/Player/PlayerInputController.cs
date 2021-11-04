@@ -3,17 +3,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
-    private PrototypeInputs inputControls;
-    private PlayerMovement movement;
-    private FungoVision vision;
-    private CameraProjectionSwapper projectionSwapper;
+    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private FungoVision vision;
+    [SerializeField] private PlayerInteraction interaction;
     
+    private PrototypeInputs inputControls;
+    private CameraProjectionSwapper projectionSwapper;
+
     private void Awake()
     {
-        movement = GetComponent<PlayerMovement>();
-        vision = GetComponent<FungoVision>();
         projectionSwapper = Camera.main.GetComponent<CameraProjectionSwapper>();
-        
+
         inputControls = new PrototypeInputs();
         inputControls.Player.MoveHorizontal.performed += OnMoveDirH;
         inputControls.Player.MoveHorizontal.canceled += OnMoveStopH;
@@ -23,7 +23,7 @@ public class PlayerInputController : MonoBehaviour
         inputControls.Player.PadMove.performed += OnMove;
         inputControls.Player.PadMove.canceled += OnMoveStop;
         inputControls.Player.SwapProjection.started += OnCameraProjectionChange;
-        inputControls.Player.Interact.started += GetComponent<PlayerInteraction>().OnTryInteract;
+        inputControls.Player.Interact.started += OnInteract;
         inputControls.Player.Fungovision.started += OnFungovisionToggle;
     }
 
@@ -69,4 +69,7 @@ public class PlayerInputController : MonoBehaviour
     private void OnFungovisionToggle(InputAction.CallbackContext obj) => vision.ToggleFungoVision();
     
     private void OnCameraProjectionChange(InputAction.CallbackContext obj) => projectionSwapper.ChangeCameraProjection();
+    
+    private void OnInteract(InputAction.CallbackContext obj) => interaction.TryInteract();
+
 }
