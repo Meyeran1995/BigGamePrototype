@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -145,8 +144,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        effect.ToggleEffect();
-        effect.OrderShadows(moveDir.normalized);
+        effect.StartEffect(dashDirection);
 
         Vector3 nextPos = rb.position;
         float dashEvalStep = 1f / dashFrames;
@@ -180,6 +178,6 @@ public class PlayerMovement : MonoBehaviour
     private void ExitDash()
     {
         isDashing = false;
-        effect.ToggleEffect();
+        effect.StopEffect();
     }
 }
