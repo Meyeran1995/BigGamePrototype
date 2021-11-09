@@ -9,7 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 {
-    private static PlayerMovement movement;
+    private static PlayerMovement Movement;
     [SerializeField] private int zoneIndex;
     [SerializeField] private PuzzleZone partner;
     [SerializeField] private EventEmitterSO hintCue;
@@ -23,11 +23,14 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 
     private void Awake()
     {
-        if (!movement)
-            movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if (!Movement)
+            Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
-    private void Start() => PuzzleZoneConnector.Zones.Add(this);
+    private void Start()
+    {
+        PuzzleZoneConnector.Zones.Add(this);
+    }
 
     public void SetToConnected() => isConnected = true;
     
@@ -41,7 +44,7 @@ public class PuzzleZone : MonoBehaviour, IEquatable<PuzzleZone>
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (isConnected || !movement.isDashing) return;
+        if (isConnected || !Movement.isDashing) return;
         PuzzleZoneConnector.OnZonePulled(this);
     }
 
