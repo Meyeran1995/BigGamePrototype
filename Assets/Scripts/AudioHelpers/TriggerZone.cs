@@ -7,27 +7,23 @@ using UnityEngine.Events;
 public class TriggerZone : MonoBehaviour
 {
     [SerializeField] private Vector3 exitDirection;
-    [SerializeField] private UnityEvent zoneEvent;
+    [SerializeField] private UnityEvent zoneEnterEvent, zoneLeaveEvent;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GetAngle(other) < 90f) return;
         
+        zoneEnterEvent.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        float angle = Vector3.Angle(other.transform.position - transform.position, exitDirection);
-
-        // if (angle < 90f)
-        // {
-        //     if (exitCam)
-        //         exitCam.enabled = true;
-        // }
-        // else if (entryCam)
-        // {
-        //     entryCam.enabled = false;
-        // }
+        if (GetAngle(other) < 90f) return;
+        
+        zoneLeaveEvent.Invoke();
     }
+    
+    private float GetAngle(Collider other) => Vector3.Angle(other.transform.position - transform.position, exitDirection);
 
     private void OnValidate() => GetComponent<BoxCollider>().isTrigger = true;
 

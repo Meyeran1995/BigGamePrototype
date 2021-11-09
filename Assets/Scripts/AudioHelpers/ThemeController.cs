@@ -26,6 +26,7 @@ public class ThemeController : MonoBehaviour
             themes[currentThemeIndex].StopEmitting();
         
         themes[newThemeIndex].StartEmitting(gameObject);
+        currentThemeIndex = newThemeIndex;
     }
 
     public void PlayTheme(EventEmitterSO theme)

@@ -6875,6 +6875,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5188387855623099233, guid: ef6b6f599b75dfc4584ff75ddc20ad3a, type: 3}
   m_PrefabInstance: {fileID: 190055961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &656811542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656811543}
+  - component: {fileID: 656811545}
+  - component: {fileID: 656811544}
+  m_Layer: 0
+  m_Name: ChangeToPuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &656811543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656811542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 86.3, y: 1, z: 5.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1521845892}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656811544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656811542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97198943fcd649418e175c38d9ccb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitDirection: {x: 1, y: 0, z: 0}
+  zoneEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2132487221}
+        m_TargetAssemblyTypeName: ThemeController, Assembly-CSharp
+        m_MethodName: PlayTheme
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  zoneLeaveEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2132487221}
+        m_TargetAssemblyTypeName: ThemeController, Assembly-CSharp
+        m_MethodName: PlayTheme
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &656811545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656811542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 40}
+  m_Center: {x: 0, y: 0, z: -1.5}
 --- !u!4 &656993716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 735114308929326910, guid: 21f966637651fe543a3d970d2600adb8, type: 3}
@@ -7416,7 +7504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733701658}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 93.3, y: 85.85281, z: -71.85281}
+  m_LocalPosition: {x: 54.6, y: 85.85281, z: -77.05282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 886886750}
@@ -13372,6 +13460,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aac534778192524abf194d923b2d93f, type: 3}
+--- !u!1 &1521845891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521845892}
+  m_Layer: 0
+  m_Name: AudioZones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1521845892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521845891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 656811543}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1522364009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8557067808570697354, guid: c56b5d1102eb9794bbba4a637d3267b0, type: 3}
@@ -17553,7 +17672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939954156}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 93.3, y: 85.85281, z: -71.85281}
+  m_LocalPosition: {x: 54.6, y: 85.85281, z: -77.05282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1373184442}
@@ -19837,7 +19956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323658532557843932, guid: 43c3399bf128f944995880439acc0ccc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.3
+      value: 54.6
       objectReference: {fileID: 0}
     - target: {fileID: 1323658532557843932, guid: 43c3399bf128f944995880439acc0ccc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19845,7 +19964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323658532557843932, guid: 43c3399bf128f944995880439acc0ccc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 1323658532557843932, guid: 43c3399bf128f944995880439acc0ccc, type: 3}
       propertyPath: m_LocalRotation.w
